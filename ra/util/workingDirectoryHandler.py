@@ -9,6 +9,8 @@ from userMessages import *
 
 
 def determineWorkingDirectory():
+    
+    #TODO das aktuelle outputdirectory anzeigen am besten nur rueckgabefleck.
         
         currentdir = os.getcwd()
         #checks if a outPutDirectory.txt file exists, which contains the outputdirectory, maybe change the location of this file

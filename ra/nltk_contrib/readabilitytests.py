@@ -14,6 +14,7 @@ class ReadabilityTool:
         self.tests_given_lang['all'] = {}
         self.tests_given_lang['all']["ARI"] = self.ARI
         self.tests_given_lang['all']['Flesch Reading Ease'] = self.FleschReadingEase
+        self.tests_given_lang['all']['Flesch Reading Ease German'] = self.FleschReadingEaseGerman
         self.tests_given_lang['all']["Flesch-Kincaid Grade Level"] = self.FleschKincaidGradeLevel
         self.tests_given_lang['all']["Gunning Fog Index"] = self.GunningFogIndex
         self.tests_given_lang['all']["SMOG Index"] = self.SMOGIndex
@@ -29,6 +30,7 @@ class ReadabilityTool:
         self.tests_given_lang['eng'] = {}
         self.tests_given_lang['eng']["ARI"] = self.ARI
         self.tests_given_lang['eng']['Flesch Reading Ease'] = self.FleschReadingEase
+        self.tests_given_lang['eng']['Flesch Reading Ease German'] = self.FleschReadingEaseGerman
         self.tests_given_lang['eng']["Flesch-Kincaid Grade Level"] = self.FleschKincaidGradeLevel
         self.tests_given_lang['eng']["Gunning Fog Index"] = self.GunningFogIndex
         self.tests_given_lang['eng']["SMOG Index"] = self.SMOGIndex
@@ -97,6 +99,14 @@ class ReadabilityTool:
         score = 0.0
         analyzedVars = self.analyzedVars        
         score = 206.835 - (1.015 * (analyzedVars['averageWordsPerSentence'])) - (84.6 * (analyzedVars['syllableCount']/ analyzedVars['wordCount']))
+        return score
+    
+    def FleschReadingEaseGerman(self, text = ''):
+        self.__analyzeText(text)
+        score = 0.0
+        analyzedVars = self.analyzedVars        
+        #NOTE in german the syllables per words quiotient has less impact on the score (58.5 < 84.6) so german words are aspected to be longer.
+        score = 180 - ((analyzedVars['averageWordsPerSentence'])) - (58.5 * (analyzedVars['syllableCount']/ analyzedVars['wordCount']))
         return score
     
     def FleschKincaidGradeLevel(self, text = ''):
@@ -260,6 +270,7 @@ class ReadabilityTool:
         self.__analyzeText(text)
 #        ari = 0.0
 #        fleschEase = 0.0
+#        fleschEaseGerman = 0.0
 #        fleschGrade = 0.0
 #        gunningFog = 0.0
 #        smog = 0.0
@@ -267,6 +278,7 @@ class ReadabilityTool:
 #        
 #        ari = self.ARI()
 #        fleschEase = self.FleschReadingEase()
+#        fleschEaseGerman = self.FleschReadingEaseGerman()
 #        fleschGrade = self.FleschKincaidGradeLevel()
 #        gunningFog = self.GunningFogIndex()
 #        smog = self.SMOGIndex()
@@ -277,6 +289,7 @@ class ReadabilityTool:
 #        print '*' * 70
 #        print ' ARI: %.1f' % ari
 #        print ' Flesch Reading Ease: %.1f' % fleschEase
+#        print ' Flesch Reading Ease German: %.1f' % fleschEaseGerman
 #        print ' FleschKincaid Grade Level: %.1f' % fleschGrade
 #        print ' Gunning Fog: %.1f' % gunningFog
 #        print ' SMOG Index: %.1f' % smog

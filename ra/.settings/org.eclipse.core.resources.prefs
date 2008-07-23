@@ -4,4 +4,5 @@ encoding//nltk_contrib/crawler.py=utf-8
 encoding//nltk_contrib/languageclassifier.py=utf-8
 encoding//nltk_contrib/textanalyzer.py=utf-8
 encoding//presentation/frychart.py=latin1
+encoding//presentation/linechart.py=latin1
 encoding//presentation/zscores.py=utf-8

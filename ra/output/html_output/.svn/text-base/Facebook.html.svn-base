@@ -114,6 +114,10 @@
                     <td>Flesch Reading Ease</td>
                     <td>56.45</td>
                 </tr>
+                 <tr>
+                    <td>Flesch Reading Ease German</td>
+                    <td>56.45</td>
+                </tr>
                 <tr>
                     <td>Flesch-Kincaid Grade Level</td>
                     <td>12.09</td>

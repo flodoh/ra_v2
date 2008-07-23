@@ -35,6 +35,7 @@ class ReadabilityAnalyzer(object):
         #measure available
         self.measures = ["ARI",
                          "Flesch Reading Ease",
+                         "Flesch Reading Ease German",
                          "Flesch-Kincaid Grade Level",
                          "Gunning Fog Index",
                          "SMOG Index",

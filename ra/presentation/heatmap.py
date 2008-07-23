@@ -43,17 +43,20 @@ class Heatmap(object):
         sites = data.keys()
         scores = data[data.keys()[0]]["scores"].keys()
         
+        
+        #TODO werte unten anpassen 
         #exlude some scores that have not a grade level, so that they don't mess up colors
         for site in sites:
             for score in scores:
-                if score <> "Flesch Reading Ease" and score <> "LIX" and score <> "RIX" and score <> "New Dale Chall" and score <> "New Dale Chall_enhanced":
+                if score <> "Flesh Reading Ease" and score <> "LIX" and score <> "RIX" and score <> "New Dale Chall" and score <> "New Dale Chall_enhanced":
                     site_values.append(data[site]["scores"][score])
                     score_labels.append(score)
             #append also the name of the site
             site_values.append(site)
             values.append(site_values)
             site_values = []
-            
+        
+        #TODO bestimmt sowas aenliches wie flesch  muss angepasst werden
         #sort it according to flesch reading ease (values and labels)
         values = sorted(values, key=lambda flesch: flesch[0])
         #get only the numeric values

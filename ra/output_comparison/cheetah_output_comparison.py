@@ -16,8 +16,8 @@ def substitute(values, fry, heatmap, template):
     <table class="condensed-table">
     <thread>
         <th>SITE</th> 
-
         <th>Flesch Reading Ease</th>
+        <th>Flesch Reading Ease German</th>
         <th>Flesch-Kincaid</th>    
         <th>RIX</th> 
         <th>Coleman-Liau</th> 
