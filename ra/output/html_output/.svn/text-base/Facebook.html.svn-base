@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Readability of Privacy Policies - Facebook </title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	
+	<!--JavaScript-->
+	<script src="js/jquery-1.7.min.js"></script>
+	<script src="js/jquery-ui.js"></script>	
+	
+	<script src="js/bootstrap-tabs.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+		  jQuery(".content1").hide();
+		  //toggle the componenet with class msg_body
+		  jQuery(".heading1").click(function()
+		  {
+			jQuery(this).next(".content1").slideToggle(500);
+		  });
+		});
+	</script>
+
+	
+	
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+    </style>
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="#">Readability of Privacy Policies</a>
+          <!--
+		  <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+
+	 <div class="page-header">
+	          <h1>Facebook <small> Privacy policy from 2011-12-21</small></h1>
+	  </div>
+	
+	  <!-- Main hero unit for a primary marketing message or call to action
+      <div class="hero-unit">
+        <h1>Hello, world!</h1>
+        <p>Vestibulum id ligula porta felis euismod semper. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+         <p><a class="btn primary large">Learn more &raquo;</a></p> -->
+
+	<div class="row">
+		<div class="span16">
+			
+			<p>URL: <a href="- no URL given -">- no URL given -</a>
+			</p>
+			
+			<div class="layer1">
+				<p class="heading1"><a href="#" class="btn small">View Privacy Policy text</a>
+		        </p>
+					<div class="content1">
+					 <blockquote><p> 
+						Other information we receive about you We also receive other types of information about you: We receive data about you whenever you interact with Facebook, such as when you look at another person's profile, send someone a message, search for a friend or a Page, click on an ad, or purchase Facebook Credits. When you post things like photos or videos on Facebook, we may receive additional related data (or metadata), such as the time, date, and place you took the photo or video. We receive data from the computer, mobile phone or other device you use to access Facebook. This may include your IP address, location, the type of browser you use, or the pages you visit. For example, we may get your GPS location so we can tell you if any of your friends are nearby. We receive data whenever you visit a game, application, or website that uses Facebook Platform or visit a site with a Facebook feature (such as a social plugin). This may include the date and time you visit the site; the web address, or URL, you're on; technical information about the IP address, browser and the operating system you use; and, if you are logged in to Facebook, your User ID. Sometimes we get data from our advertising partners, customers and other third parties that helps us (or them) deliver ads, understand online activity, and generally make Facebook better. For example, an advertiser may tell us how you responded to an ad on Facebook or on another site in order to measure the effectiveness of - and improve the quality of - those ads. We also put together data from the information we already have about you and your friends. For example, we may put together data about you to determine which friends we should show you in your News Feed or suggest you tag in the photos you post. We may put together your current city with GPS and other location information we have about you to, for example, tell you and your friends about people or events nearby, or offer deals to you that you might be interested in. We may also put together data about you to serve you ads that might be more relevant to you. When we get your GPS location, we put it together with other location information we have about you (like your current city). But we only keep it until it is no longer useful to provide you services. We only provide data to our advertising partners or customers after we have removed your name or any other personally identifying information from it, or have combined it with other people's data in a way that it is no longer associated with you. Similarly, when we receive data about you from our advertising partners or customers, we keep the data for 180 days. After that, we combine the data with other people's data in a way that it is no longer 600 with you.
+					 </p> </blockquote>
+						
+					</div>
+			</div>
+		</div>	
+
+        <div class="span8">
+          <h3>Numerical Measures</h3>
+          <!--
+          <ul class="media-grid">
+		  <li>
+		    <a href="#">
+		      <img class="thumbnail" src="../output/html_output/Facebook 0002/line_graph.png" alt="" width="450">
+		    </a>
+		  </li>
+			</ul> -->
+			<p> 
+    <table class="condensed-table">
+    <thread>
+        <th>Measure</th>
+        <th>Exact Number</th>    
+        </thread>
+        <tbody  class="zebra-striped">
+        
+                <tr>
+                    <td>Flesch Reading Ease</td>
+                    <td>56.45</td>
+                </tr>
+                <tr>
+                    <td>Flesch-Kincaid Grade Level</td>
+                    <td>12.09</td>
+                </tr>
+                <tr>
+                    <td>RIX</td>
+                    <td>6.06</td>
+                </tr>
+                <tr>
+                    <td>Coleman Liau Index</td>
+                    <td>9.13</td>
+                </tr>
+                <tr>
+                    <td>Gunning Fog Index</td>
+                    <td>15.32</td>
+                </tr>
+                <tr>
+                    <td>New Dale Chall</td>
+                    <td>5.02</td>
+                </tr>
+                <tr>
+                    <td>ARI</td>
+                    <td>13.15</td>
+                </tr>
+                <tr>
+                    <td>SMOG Index</td>
+                    <td>12.66</td>
+                </tr>
+                <tr>
+                    <td>LIX</td>
+                    <td>49.53</td>
+                </tr>        
+        </tbody>    
+            </table>
+				</p>
+		</div>
+		<div class="span8">
+	          <h3>Fry Graph</h3>
+	           <ul class="media-grid">
+			  <li>
+			    <a href="#">
+			      <img class="thumbnail" src="../../output/html_output/Facebook 0002/fry_chart.png" alt="" width="450px">
+			    </a>
+			  </li>
+				</ul>
+	     </div>
+        <div class="span8">
+          <h3>Dale-Chall Representation</h3>
+           <ul class="media-grid">
+		  <li>
+		    <a href="#">
+		      <img class="thumbnail" src="../../output/html_output/Facebook 0002/dalechall_graph.png" alt="" width="450px">
+		    </a>
+		  </li>
+			</ul>
+       	</div>
+
+		<!--<div class="span8">
+	          <h3>test eins zwei drei</h3>
+	      </div> -->
+	      
+		<div class="span8">
+	          <h3>Dale-Chall Bar Structure</h3>
+	           <ul class="media-grid">
+			  <li>
+			    <a href="#">
+			      <img class="thumbnail" src="../../output/html_output/Facebook 0002/line_graph.png" alt="" width="450px">
+			    </a>
+			  </li>
+				</ul>
+	       </div> 
+
+
+       <div class="span16">
+	<p><a class="btn" href="javascript:window.print()">Print this Report &raquo;</a></p>
+		</div>
+      </div>
+      <footer>
+	
+        <p><!--&copy;--> Humboldt UniversitÃ¤t zu Berlin - M. VoÃ, E. WeiÃbrich</p>
+	</footer>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>

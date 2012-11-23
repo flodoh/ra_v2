@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Readability of Privacy Policies - Google </title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	
+	<!--JavaScript-->
+	<script src="js/jquery-1.7.min.js"></script>
+	<script src="js/jquery-ui.js"></script>	
+	
+	<script src="js/bootstrap-tabs.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+		  jQuery(".content1").hide();
+		  //toggle the componenet with class msg_body
+		  jQuery(".heading1").click(function()
+		  {
+			jQuery(this).next(".content1").slideToggle(500);
+		  });
+		});
+	</script>
+
+	
+	
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+    </style>
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="#">Readability of Privacy Policies</a>
+          <!--
+		  <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+
+	 <div class="page-header">
+	          <h1>Google <small> Privacy policy from 2011-12-21</small></h1>
+	  </div>
+	
+	  <!-- Main hero unit for a primary marketing message or call to action
+      <div class="hero-unit">
+        <h1>Hello, world!</h1>
+        <p>Vestibulum id ligula porta felis euismod semper. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+         <p><a class="btn primary large">Learn more &raquo;</a></p> -->
+
+	<div class="row">
+		<div class="span16">
+			
+			<p>URL: <a href="- no URL given -">- no URL given -</a>
+			</p>
+			
+			<div class="layer1">
+				<p class="heading1"><a href="#" class="btn small">View Privacy Policy text</a>
+		        </p>
+					<div class="content1">
+					 <blockquote><p> 
+						Information you provide  When you sign up for a Google Account, we ask you for personal information. We may combine the information you submit under your account with information from other Google services or third parties in order to provide you with a better experience and to improve the quality of our services. For certain services, we may give you the opportunity to opt out of combining such information. You can use the Google Dashboard to learn more about the information associated with your Account. If you are using Google services in conjunction with your Google Apps Account, Google provides such services in conjunction with or on behalf of your domain administrator. Your administrator will have access to your account information including your email. Consult your domain administrators privacy policy for more information.
+Cookies  When you visit Google, we send one or more cookies to your computer or other device. We use cookies to improve the quality of our service, including for storing user preferences, improving search results and ad selection, and tracking user trends, such as how people search. Google also uses cookies in its advertising services to help advertisers and publishers serve and manage ads across the web and on Google services.
+Log information  When you access Google services via a browser, application or other client our servers automatically record certain information. These server logs may include information such as your web request, your interaction with a service, Internet Protocol address, browser type, browser language, the date and time of your request and one or more cookies that may uniquely identify your browser or your account.
+User communications  When you send email or other communications to Google, we may retain those communications in order to process your inquiries, respond to your requests and improve our services. When you send and receive SMS messages to or from one of our services that provides SMS functionality, we may collect and maintain information associated with those messages, such as the phone number, the wireless carrier associated with the phone number, the content of the message, and the date and time of the transaction. We may use your email address to communicate with you about our services.
+Affiliated Google Services on other sites  We offer some of our services on or through other web sites. Personal information that you provide to those sites may be sent to Google in order to deliver the service. We process such information under this Privacy Policy.
+Third Party Applications  Google may make available third party applications, such as gadgets or extensions, through its services. The information collected by Google when you enable a third party application is processed under this Privacy Policy. Information collected by the third party application provider is governed by their privacy policies.
+Location data  Google offers location-enabled services, such as Google Maps and Latitude. If you use those services, Google may receive information about your actual location (such as GPS signals sent by a mobile device) or information that can be used to approximate a location (such as a cell ID).
+Unique application number  Certain services, such as Google Toolbar, include a unique application number that is not associated with your account or you. This number and information about your installation (e.g., operating system type, version number) may be sent to Google when you install or uninstall that service or when that service periodically contacts our servers (for example, to request automatic updates to the software).
+Other sites  This Privacy Policy applies to Google services only. We do not exercise control over the sites displayed as search results, sites that include Google applications, products or services, or links from within our various services. These other sites may place their own cookies or other files on your computer, collect data or solicit personal information from you.
+					 </p> </blockquote>
+						
+					</div>
+			</div>
+		</div>	
+
+        <div class="span8">
+          <h3>Numerical Measures</h3>
+          <!--
+          <ul class="media-grid">
+		  <li>
+		    <a href="#">
+		      <img class="thumbnail" src="../output/html_output/Google 0002/line_graph.png" alt="" width="450">
+		    </a>
+		  </li>
+			</ul> -->
+			<p> 
+    <table class="condensed-table">
+    <thread>
+        <th>Measure</th>
+        <th>Exact Number</th>    
+        </thread>
+        <tbody  class="zebra-striped">
+        
+                <tr>
+                    <td>Flesch Reading Ease</td>
+                    <td>42.58</td>
+                </tr>
+                <tr>
+                    <td>Flesch-Kincaid Grade Level</td>
+                    <td>12.79</td>
+                </tr>
+                <tr>
+                    <td>RIX</td>
+                    <td>7.11</td>
+                </tr>
+                <tr>
+                    <td>Coleman Liau Index</td>
+                    <td>13.29</td>
+                </tr>
+                <tr>
+                    <td>Gunning Fog Index</td>
+                    <td>16.21</td>
+                </tr>
+                <tr>
+                    <td>New Dale Chall</td>
+                    <td>4.79</td>
+                </tr>
+                <tr>
+                    <td>ARI</td>
+                    <td>14.34</td>
+                </tr>
+                <tr>
+                    <td>SMOG Index</td>
+                    <td>14.29</td>
+                </tr>
+                <tr>
+                    <td>LIX</td>
+                    <td>53.93</td>
+                </tr>        
+        </tbody>    
+            </table>
+				</p>
+		</div>
+		<div class="span8">
+	          <h3>Fry Graph</h3>
+	           <ul class="media-grid">
+			  <li>
+			    <a href="#">
+			      <img class="thumbnail" src="../../output/html_output/Google 0002/fry_chart.png" alt="" width="450px">
+			    </a>
+			  </li>
+				</ul>
+	     </div>
+        <div class="span8">
+          <h3>Dale-Chall Representation</h3>
+           <ul class="media-grid">
+		  <li>
+		    <a href="#">
+		      <img class="thumbnail" src="../../output/html_output/Google 0002/dalechall_graph.png" alt="" width="450px">
+		    </a>
+		  </li>
+			</ul>
+       	</div>
+
+		<!--<div class="span8">
+	          <h3>test eins zwei drei</h3>
+	      </div> -->
+	      
+		<div class="span8">
+	          <h3>Dale-Chall Bar Structure</h3>
+	           <ul class="media-grid">
+			  <li>
+			    <a href="#">
+			      <img class="thumbnail" src="../../output/html_output/Google 0002/line_graph.png" alt="" width="450px">
+			    </a>
+			  </li>
+				</ul>
+	       </div> 
+
+
+       <div class="span16">
+	<p><a class="btn" href="javascript:window.print()">Print this Report &raquo;</a></p>
+		</div>
+      </div>
+      <footer>
+	
+        <p><!--&copy;--> Humboldt UniversitÃ¤t zu Berlin - M. VoÃ, E. WeiÃbrich</p>
+	</footer>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>

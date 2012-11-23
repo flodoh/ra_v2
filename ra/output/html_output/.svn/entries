@@ -1,0 +1,331 @@
+10
+
+dir
+122
+http://svn.eric-lee.de/readability/output/html_output
+http://svn.eric-lee.de/readability
+
+
+
+2012-03-03T13:25:42.975160Z
+120
+marcus
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+d20efc77-997a-4407-97d1-faa9856f5a5e
+
+
+
+
+
+
+
+
+()
+
+A CHRISTMAS TREE 0001
+dir
+
+
+
+add
+
+A CHRISTMAS TREE.html
+file
+0
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+BBC 0001
+dir
+
+
+
+add
+
+BBC.html
+file
+0
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+Bill of Rights 0001
+dir
+
+
+
+add
+
+Bill of Rights.html
+file
+0
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+Declaration of Independence 0001
+dir
+
+
+
+add
+
+Declaration of Independence.html
+file
+0
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+Disney 0001
+dir
+
+
+
+add
+
+Disney.html
+file
+0
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+Facebook 0001
+dir
+
+
+
+add
+
+Facebook.html
+file
+
+
+
+
+2012-01-24T09:12:33.799000Z
+2a5c8afff41c348a00ea39cb0a99e6e3
+2012-01-19T17:25:23.309277Z
+101
+marcus
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+8562
+
+Google.html
+file
+
+
+
+
+2012-01-24T09:12:33.612000Z
+988f0d3aef42df8916430a1d0b644b2b
+2012-01-19T17:25:23.309277Z
+101
+marcus
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9842
+
+Livejasmin 0001
+dir
+
+
+
+add
+
+Livejasmin.html
+file
+0
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+The giving tree 0001
+dir
+
+
+
+add
+
+The giving tree.html
+file
+0
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+Wikipedia 0001
+dir
+
+
+
+add
+
+Wikipedia.html
+file
+0
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+Wordpress 0001
+dir
+
+
+
+add
+
+Wordpress.html
+file
+0
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+Yahoo! 0001
+dir
+
+
+
+add
+
+Yahoo!.html
+file
+0
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+css
+dir
+
+img
+dir
+
+js
+dir
+
