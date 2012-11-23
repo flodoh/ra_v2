@@ -1,0 +1,6 @@
+*.pyc
+ra/output/*
+ra/output_comparison/*
+ra/.settings/*
+ra/.DS_Store
+ra/nltk_contrib/*.pyc
