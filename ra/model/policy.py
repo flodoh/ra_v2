@@ -4,7 +4,9 @@ Created on 19.11.2012
 @author: florian
 '''
 
-import sqlobject
+#import sqlobject
+from nltk.tokenize import *
+import sqlobject 
 from database.connection import conn
 
 # Im Team definieren, was wir fuer Daten zu jeder Policy speichern wollen!! Attribute festlegen!
