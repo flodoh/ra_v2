@@ -66,6 +66,7 @@ class commandLineHandler():
                     print("Wrong number of input Parameters, at least one policy needs to be inserted\n\n")
             else:
                 print("Wrong parameters inserted!\n\n") 
+                
 # class MyClass(object):
 #    '''
 #    classdocs
