@@ -3,8 +3,8 @@ Created on 21.11.2012
 
 @author: florian
 @function: Anzeige der moeglichen Optionen fuer den User, Entgegennahme und Ueberpruefung der
-Formalen Anforderungen an die Eingabe (wie z.B. Emaiformat, numerische Werte..)
-Rueckgabewert ist ein Key/Value-Paar. Key entspricht ENUM 
+Formalen Anforderungen an die Eingabe (wie z.B. Emailformat, numerische Werte..)
+Rueckgabewert ist eine eindeutige Nummer, die der Weiterverarbeitung dient
 '''
 from InputType import *
 
@@ -49,7 +49,7 @@ class commandLineHandler():
              
             elif inputStrings[0] == "add":
                 if(num > 1):
-                    return (type.addMetrices, inputStrings[1:])
+                    return (type.addMetrics, inputStrings[1:])
                 else:
                     print("Wrong number of input Parameters, at least one metric needs to be inserted\n\n")
              
