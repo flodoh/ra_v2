@@ -8,7 +8,7 @@ Hierfuer muss die Library "SQLObject" installiert sein (Terminal: sudo easy_inst
 Eclipse-Libraries entsprechend hinzugefuegt werden. 
 '''
 
-import sqlobject
+
 from sqlobject.sqlite import builder
 conn = builder()('../database/db2.db')
 

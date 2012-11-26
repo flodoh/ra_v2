@@ -10,7 +10,7 @@ from inputType import *
 
 class commandLineHandler():
     
-    OptionList = "Interactions with database\n\
+    optionList = "Interactions with database\n\
         To delete one or more Policies, please enter:              delete \"policy A, policy B, ...\"\n\
         To insert Policy, please enter:                            insert \"PolicyName\" \"Url of Policy\" \"Name of PolicyFile\"  \n\
         To view all inserted policies, please enter:               viewPolicies\n\
@@ -20,12 +20,12 @@ class commandLineHandler():
         To apply metrices on one or more policies, please enter:   anylalyze \"policy A, policy B, ...\"\n\
         " 
     exitMassage = "\nTo exit the program, pls enter:                                    exit  \n"
-    WelcomeText = "Please choose one option from the list below and enter the appropriate instructions\n(replace expressions between quotes \" \" by adequate names)\n\n"+OptionList+exitMassage
+    welcomeText = "Please choose one option from the list below and enter the appropriate instructions\n(replace expressions between quotes \" \" by adequate names)\n\n"+optionList+exitMassage
    
     def receiveAndValidateInput(self):
         type = inputType()
         while (1):
-            print self.WelcomeText
+            print self.welcomeText
             input = raw_input()
             if input == 'exit':
                 break

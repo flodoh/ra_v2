@@ -8,16 +8,31 @@ Jeder Test muss mit "test_" beginnen, damit der Interpreter ihn erkennt.
 Spaeter macht die Auslagerung bestimmter Tests in eine eigene Testklasse sicher Sinn.
 '''
 import unittest
+import datetime
 from controller.validation import validation
 from model.policy import policy
 
 class Test(unittest.TestCase):
 
 
-    #Test Databaseconnection
-    #def test_connectDatabase(self):
-    #    policy1 = policy(url='http://test5.de', name='Policy1', text='Dies ist eine Policy')
-    #    self.assertTrue(policy1<>False)
+    #Create Policy, check if it is in the data base and delete it
+    def test_createPolicy(self):
+        policy1 = policy(name ='Policy1', url='http://test1.de', company ='TestFirma',
+                         date = datetime.datetime.now(), text = 'Dies ist eine Policy. Test Test Test ..',
+                         updatedText = 'Dies ist ein bearbeiteter Text...')
+        
+        # Hole dir die Policy aus der Datenbank by ID
+        policy2 = policy.get(policy1.id)
+        #policy2 = policy.selectBy(name="Policy1Changed")
+        
+        # Teste, ob Policy geholt wurde, aendere den Namen in der Datenbank und checke,
+        # ob die Aenderung erfolgreich war
+        self.assertTrue(policy2.name=="Policy1")
+        policy1.set(name="Policy1Changed",company="TestFirmaChanged")
+        policy2 = policy.get(policy1.id)
+        self.assertTrue(policy2.name=="Policy1Changed")
+        policy1.destroySelf()
+
         
     #Tests zur Emailvalidierung
     def test_checkEmailValidation(self):
@@ -66,9 +81,6 @@ class Test(unittest.TestCase):
         isUrlValid = validator.isUrlValid(url6)     
         self.assertTrue(isUrlValid==False)
         
-    
-    
-    
     
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.connectDatabase']

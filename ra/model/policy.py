@@ -9,12 +9,16 @@ from nltk.tokenize import *
 import sqlobject 
 from database.connection import conn
 
+
 # Im Team definieren, was wir fuer Daten zu jeder Policy speichern wollen!! Attribute festlegen!
 class policy(sqlobject.SQLObject):
     _connection = conn
-    url = sqlobject.StringCol(length=14, unique=True)
-    name = sqlobject.StringCol(length=255)
-    date = sqlobject.DateTimeCol(default=None)
+    name = sqlobject.StringCol()
+    url = sqlobject.StringCol(unique=True);
+    company = sqlobject.StringCol();
+    date = sqlobject.DateTimeCol()
     text = sqlobject.StringCol()
-    
+    updatedText = sqlobject.StringCol()
+
+# create table for policy  
 policy.createTable(ifNotExists=True)
