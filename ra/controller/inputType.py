@@ -4,7 +4,7 @@ This class is an enum of all possible inputTypes
 @author: Simon
 '''
 
-class InputType:
+class inputType:
     # Let's define here as early as possible ALL possible actions our program
     deletePolicies = 1
     insertPolicy = 2

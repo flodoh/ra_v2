@@ -6,7 +6,7 @@ Created on 21.11.2012
 Formalen Anforderungen an die Eingabe (wie z.B. Emailformat, numerische Werte..)
 Rueckgabewert ist eine eindeutige Nummer, die der Weiterverarbeitung dient
 '''
-from InputType import *
+from inputType import *
 
 class commandLineHandler():
     
@@ -23,7 +23,7 @@ class commandLineHandler():
     WelcomeText = "Please choose one option from the list below and enter the appropriate instructions\n(replace expressions between quotes \" \" by adequate names)\n\n"+OptionList+exitMassage
    
     def receiveAndValidateInput(self):
-        type = InputType()
+        type = inputType()
         while (1):
             print self.WelcomeText
             input = raw_input()
