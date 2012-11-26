@@ -18,7 +18,7 @@ def editPolicy(url,name,text):
 
 if __name__ == '__main__':
     inpuntHandler   =  commandLineHandler()
-    inpuntHandler.ReceiveAndValidateInput()
+    inpuntHandler.receiveAndValidateInput()
                 
 # Objekt der Klasse commandLineHandler wird erstellt. 
 # Schleife bis User Programm beendet

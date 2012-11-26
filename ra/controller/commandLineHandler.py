@@ -22,7 +22,7 @@ class commandLineHandler():
     exitMassage = "\nTo exit the program, pls enter:                                    exit  \n"
     WelcomeText = "Please choose one option from the list below and enter the appropriate instructions\n(replace expressions between quotes \" \" by adequate names)\n\n"+OptionList+exitMassage
    
-    def ReceiveAndValidateInput(self):
+    def receiveAndValidateInput(self):
         type = InputType()
         while (1):
             print self.WelcomeText
