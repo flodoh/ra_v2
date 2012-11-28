@@ -28,7 +28,7 @@ class commandLineHandler():
             print self.welcomeText
             input = raw_input()
             if input == 'exit':
-                break
+                return(type.exitProgramm, "")
             inputStrings = input.split();
             num = len(inputStrings)
             if inputStrings[0] == "delete":
@@ -45,7 +45,7 @@ class commandLineHandler():
                     return (type.insertPolicy, inputStrings[1:])
                 
             elif ((inputStrings[0] == "viewPolicies") & (num == 1)):
-                return (type.viewPolicies)
+                return (type.viewPolicies,"")
              
             elif inputStrings[0] == "add":
                 if(num > 1):

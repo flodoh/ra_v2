@@ -6,6 +6,8 @@ This class is an enum of all possible inputTypes
 
 class inputType:
     # Let's define here as early as possible ALL possible actions our program
+    
+    exitProgramm = 0
     deletePolicies = 1
     insertPolicy = 2
     viewPolicies = 3
