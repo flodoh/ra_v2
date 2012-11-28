@@ -5,7 +5,7 @@ This class is an enum of all possible inputTypes
 '''
 
 class inputType:
-    # Let's define here as early as possible ALL possible actions our program
+    # TODO: Let's define here as early as possible ALL possible actions our program
     
     exitProgram = 0
     deletePolicies = 1

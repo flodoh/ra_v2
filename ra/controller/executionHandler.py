@@ -4,13 +4,11 @@ Created on 28.11.2012
 @author: Simon
 @function: Diese Klasse bekommt die vom commandLineHandler verifizierte
 Eingabe und fuehrt die entsprechende Funktion aus. Der Rueckgabewert ist entweder 
-ein Error oder True, wenn die Aktion erfolgreich war
+0 fuer eine erfolgreiche Execution oder ein Tupel aus 1 und dem zugehoerigen Error
 '''
-import sqlite3
-
 from model.policy import *
 import datetime
-from inputType import *
+from util.inputType import *
 from sqlobject.dberrors import *
 class executionHandler():
     
