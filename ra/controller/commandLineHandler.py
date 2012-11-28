@@ -30,7 +30,7 @@ class commandLineHandler():
     def receiveAndValidateInput(self, executionStatus, firstRun):
         type = inputType()
         if(executionStatus[0] == 0):
-            print userMessages.executionSuccess
+            print userMessages.executionSuccessful
         elif(executionStatus[0] == 1):
             print ('Error:')
             print (executionStatus[1])
