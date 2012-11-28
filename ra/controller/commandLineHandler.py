@@ -7,12 +7,13 @@ Formalen Anforderungen an die Eingabe (wie z.B. Emailformat, numerische Werte..)
 Rueckgabewert ist eine eindeutige Nummer, die der Weiterverarbeitung dient
 '''
 from inputType import *
-
+from validation import *
+import sys
 class commandLineHandler():
     
     optionList = "Interactions with database\n\
+        To insert Policy, please enter:                            insert \"PolicyName\" \"Url of Policy\" \"Company of PolicyFile\" \"Original Text of Policy\" \"Updated Text of Policy (optional)\"  \n\
         To delete one or more Policies, please enter:              delete \"policy A, policy B, ...\"\n\
-        To insert Policy, please enter:                            insert \"PolicyName\" \"Url of Policy\" \"Name of PolicyFile\"  \n\
         To view all inserted policies, please enter:               viewPolicies\n\
         \nAnalyze policies\n\
         To add metrices to default metrices, please enter:         add \"metric A, metric B, ...\"\n\
@@ -22,13 +23,23 @@ class commandLineHandler():
     exitMassage = "\nTo exit the program, pls enter:                                    exit  \n"
     welcomeText = "Please choose one option from the list below and enter the appropriate instructions\n(replace expressions between quotes \" \" by adequate names)\n\n"+optionList+exitMassage
    
-    def receiveAndValidateInput(self):
+    def receiveAndValidateInput(self, executionStatus):
         type = inputType()
+        if(executionStatus[0] == 0):
+            print "execution succesfull"
+        elif(executionStatus[0] == 1):
+            print ('Error:')
+            print (executionStatus[1])
+
         while (1):
-            print self.welcomeText
+            #welcome text only after executing time
+            if (executionStatus[0] == -1):
+                print self.welcomeText
             input = raw_input()
             if input == 'exit':
-                return(type.exitProgramm, "")
+                return(type.exitProgram, "")
+            #funktioniert derzeit nur mit einem Wort als text
+            #inputStrings is a list
             inputStrings = input.split();
             num = len(inputStrings)
             if inputStrings[0] == "delete":
@@ -38,11 +49,18 @@ class commandLineHandler():
                     return (type.deletePolicies, inputStrings[1:])
                 
             elif inputStrings[0] == "insert":
-                if(num !=4):
-                    print "Wrong number of input Parameters, this option takes exactly four parameters\n\n"
+                if((num != 5) and (num != 6) ):
+                    print "Wrong number of input Parameters, this option takes either four or five parameters\n\n"
                 else:
                     #evtl Ueberpruefung, ob url www enthaelt
-                    return (type.insertPolicy, inputStrings[1:])
+                    validator = validation()
+                    if(validator.isUrlValid(inputStrings[2])):
+                        # Wenn kein optionaler "updated Text" eingegeben wurde
+                        if(num == 5):
+                            inputStrings.append("")
+                        return (type.insertPolicy, inputStrings[1:])
+                    else:
+                        print "Url is not valid"
                 
             elif ((inputStrings[0] == "viewPolicies") & (num == 1)):
                 return (type.viewPolicies,"")

@@ -32,6 +32,15 @@ class Test(unittest.TestCase):
         policy2 = policy.get(policy1.id)
         self.assertTrue(policy2.name=="Policy1Changed")
         policy1.destroySelf()
+        
+        policy1 = policy(name ='Policy1', url='http://test1.de', company ='TestFirma',
+                         date = datetime.datetime.now(), text = 'Dies ist eine Policy. Test Test Test ..',
+                         updatedText = 'Dies ist ein bearbeiteter Text...')
+        
+        policy1 = policy(name ='Policy1', url='http://test1.de', company ='TestFirma',
+                         date = datetime.datetime.now(), text = 'Dies ist eine Policy. Test Test Test ..',
+                         updatedText = 'Dies ist ein bearbeiteter Text...')
+        
 
         
     #Tests zur Emailvalidierung
