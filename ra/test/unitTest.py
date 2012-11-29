@@ -9,7 +9,7 @@ Spaeter macht die Auslagerung bestimmter Tests in eine eigene Testklasse sicher 
 '''
 import unittest
 import datetime
-from controller.validation import validation
+from util.validation import validation
 from model.policy import policy
 
 class Test(unittest.TestCase):
@@ -32,14 +32,6 @@ class Test(unittest.TestCase):
         policy2 = policy.get(policy1.id)
         self.assertTrue(policy2.name=="Policy1Changed")
         policy1.destroySelf()
-        
-        policy1 = policy(name ='Policy1', url='http://test1.de', company ='TestFirma',
-                         date = datetime.datetime.now(), text = 'Dies ist eine Policy. Test Test Test ..',
-                         updatedText = 'Dies ist ein bearbeiteter Text...')
-        
-        policy1 = policy(name ='Policy1', url='http://test1.de', company ='TestFirma',
-                         date = datetime.datetime.now(), text = 'Dies ist eine Policy. Test Test Test ..',
-                         updatedText = 'Dies ist ein bearbeiteter Text...')
         
 
         

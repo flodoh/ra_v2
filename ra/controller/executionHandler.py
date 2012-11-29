@@ -11,13 +11,20 @@ import datetime
 from util.inputType import *
 from sqlobject.dberrors import *
 class executionHandler():
-    
+    '''
+    Description here!
+    '''
+   
+    #TODO: Shell we put this function together with the others to a "policy_controler"?
+    def __createPolicy (self, name, url, company, date, text, updatedText):
+        newPolicy=policy(name=name, url=url, company=company, date=date, text=text, updatedText=updatedText)
+        return newPolicy
+        
     #Gets the type and all parameters needed to execute the different functions
     def execute(self, input):
         if(input[0] == inputType.insertPolicy):
-            
             try:
-                policy(name = input[1][0], url=input[1][1], company = input[1][2],
+                self.__createPolicy(input[1][0], url=input[1][1], company = input[1][2],
                          date = datetime.datetime.now(), text = input[1][3],
                          updatedText = input[1][4])
             # except DuplicateEntryError as e:
