@@ -1,10 +1,6 @@
 '''
 Created on 21.11.2012
-
 @author: florian
-@function: Anzeige der moeglichen Optionen fuer den User, Entgegennahme und Ueberpruefung der
-Formalen Anforderungen an die Eingabe (wie z.B. Emailformat, numerische Werte..)
-Rueckgabewert ist eine eindeutige Nummer, die der Weiterverarbeitung dient
 '''
 from util.inputType import *
 from util.validation import *
@@ -12,6 +8,12 @@ from util.userMessages import *
 import sys
 
 class commandLineHandler():
+    '''
+    This class communicates with the user. It welcomes the user and asks him for what to do.
+    If the user types something, this class will check if it usable for an action. If not
+    the user gets an info that the command is not usable. If a command is valid/ usable
+    it will be processed and returned.
+    '''
     
     optionList = "Interactions with database\n\
         To insert Policy, please enter:                              insert \"PolicyName\" \"Url of Policy\" \"Company of PolicyFile\" \"Original Text of Policy\" \"Updated Text of Policy (optional)\"  \n\
@@ -28,6 +30,12 @@ class commandLineHandler():
     welcomeText = "Please choose one option from the list below and enter the appropriate instructions\n(replace expressions between quotes \" \" by adequate names)\n\n"+optionList+exitMassage
    
     def receiveAndValidateInput(self, executionStatus, firstRun):
+        '''
+        Inputs is information about the status of the last communication with the executionHandler()
+        and information, if this function is run for the very first time. 
+        Task of this method: Communicate with the user, ask him for a command, check this command and if valid
+        return it to.
+        '''
         type = inputType()
         if(executionStatus[0] == 0):
             print userMessages.executionSuccessful
