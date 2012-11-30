@@ -146,6 +146,7 @@ class ReadabilityAnalyzer(object):
             i = i + 1
         os.mkdir(path)
         
+        # ADDED: Schreibt in den Typ dictionary für jede Seite (jede Policy) die entsprechenden Scores in ein neues Attribut "Scores" im Dictionary. Beispiel: Coleman Liau Index float: 8.09906103286
         for site in data:
             data[site]["scores"] = self.get_measures(data[site]["text"])
             

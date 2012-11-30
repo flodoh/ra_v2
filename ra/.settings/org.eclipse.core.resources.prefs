@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//database/db.py=utf-8
+encoding//nltk_contrib/crawler.py=utf-8
 encoding//nltk_contrib/languageclassifier.py=utf-8
 encoding//nltk_contrib/textanalyzer.py=utf-8
 encoding//presentation/frychart.py=latin1

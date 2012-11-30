@@ -33,14 +33,3 @@ class executionHandler():
                 return(1, e)
             else: 
                 return (0,)
-            
-                  
-# class MyClass(object):
-#    '''
-#    classdocs
-#    '''
-
-#    def __init__(selfparams):
-#        '''
-#        Constructor
-#        '''
