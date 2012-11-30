@@ -58,8 +58,10 @@ class ReadabilityAnalyzer(object):
         if measures == '':
             measures = self.measures
             
+        # create for all defined measures the score with the help of Readability-Tool-Class  
         complete_site_dic = rt.get_test_scores(text)
         
+        # write to site_dic only those calculated measures that are needed
         for measure in measures:
             site_dic[measure] = complete_site_dic[measure]
             
@@ -146,7 +148,7 @@ class ReadabilityAnalyzer(object):
             i = i + 1
         os.mkdir(path)
         
-        # ADDED: Schreibt in den Typ dictionary für jede Seite (jede Policy) die entsprechenden Scores in ein neues Attribut "Scores" im Dictionary. Beispiel: Coleman Liau Index float: 8.09906103286
+        # ADDED: Schreibt in den Typ dictionary fuer jede Seite (jede Policy) die entsprechenden Scores in ein neues Attribut "Scores" im Dictionary. Beispiel: Coleman Liau Index float: 8.09906103286
         for site in data:
             data[site]["scores"] = self.get_measures(data[site]["text"])
             

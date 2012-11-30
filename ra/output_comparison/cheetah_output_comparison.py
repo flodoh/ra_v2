@@ -33,7 +33,8 @@ def substitute(values, fry, heatmap):
         <tbody  class="zebra-striped">
         """
     table_content =""
-
+    
+    # ADDED: for each of the policies and the corresponding measures 
     for site in values:
         cell = "" 
         col_content = """<tr>
@@ -53,12 +54,13 @@ def substitute(values, fry, heatmap):
         </tbody>    
             </table>"""
     table = table_begin + table_content + table_end
-  
+    
     template_values = {}
     template_values['table'] = str(table)
     template_values['heatmap'] = heatmap
     template_values['fry_graph'] = fry
     
+    #ADDED: write all html-content in one string (from template
     t = Template(file=TEMPLATE, searchList=template_values)
     
     return str(t)
