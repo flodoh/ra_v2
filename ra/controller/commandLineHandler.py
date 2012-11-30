@@ -42,7 +42,15 @@ class commandLineHandler():
         elif(executionStatus[0] == 1):
             print ('Error:')
             print (executionStatus[1])
-
+        elif(executionStatus[0] == 2):
+            if(executionStatus[2] == inputType.analyzePolicies):
+                print('The Following Policies were analyzed succesfully')
+                for policy in executionStatus[1][0]:
+                    print(policy)
+                print('The Following Policies were not analyzed succesfully')
+                for policyTouple in executionStatus[1][1]:
+                    print(policyTouple[0], 'Error')
+                    print(policyTouple[1])
         while (1):
             #welcome text only after executing first time
             if (firstRun == True):
