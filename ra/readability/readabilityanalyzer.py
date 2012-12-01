@@ -252,9 +252,9 @@ if __name__ == "__main__":
     ra.create_benchmark(data)
     
     #for site in easy_hard_list:
-    #ra.generate_report(data["Yahoo!"]["text"], "Yahoo!", data['Yahoo!']["url"])
+    ra.generate_report(data["Yahoo!"]["text"], "Yahoo!", data['Yahoo!']["url"])
          
-    
+    a = 3
        
     
     

@@ -49,10 +49,11 @@ class executionHandler():
             notAnalyzedPolicies = []
             for policyName in input [1]:
                 try:
-                   
-                    #policyData = policy.getOne(name = policyName)
                     policyData = policy.select(policy.q.name == policyName)[0]
-                    print policyData
+                except:
+                    notAnalyzedPolicies.append((policyName,"Policy Not Found"))
+                    continue
+                try:
                     ra.generate_report(policyData.text, policyName, policyData.url)
                     analyzedPolicies.append(policyName)
                 except Exception as e:
