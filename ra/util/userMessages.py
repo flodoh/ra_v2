@@ -14,3 +14,4 @@ class userMessages:
     exit = "Good Bye"
     urlNotValid = "Sorry, URL is not valid"
     executionSuccessful ="Execution was successful"
+    policyNotFound = "Policy not found"

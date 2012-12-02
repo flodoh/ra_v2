@@ -9,11 +9,13 @@ Eingabe und fuehrt die entsprechende Funktion aus. Der Rueckgabewert ist entwede
 from model.policy import *
 import datetime
 from util.inputType import *
+from util.userMessages import *
 from sqlobject.dberrors import *
 from readability.readabilityanalyzer import *
 class executionHandler():
     '''
-    Description here!
+    This class is responsible for executing all major functions in this program. It gets the commands
+    by the commandLindeHandler to run the wanted function. It returns an info about success or error of execution.
     '''
    
     #TODO: Shell we put this function together with the others to a "policy_controler"?
@@ -23,6 +25,8 @@ class executionHandler():
         
     #Gets the type and all parameters needed to execute the different functions
     def execute(self, input):
+        
+        # If the user wants to insert a policy
         if(input[0] == inputType.insertPolicy):
             try:
                 in_file = open(input[1][3], "r")
@@ -40,6 +44,7 @@ class executionHandler():
             else: 
                 return (0, 0,inputType.insertPolicy)
             
+        # If the user wants to run A1 on single policies    
         elif(input[0] == inputType.analyzePolicies):
             try:
                 ra = ReadabilityAnalyzer()
@@ -51,7 +56,7 @@ class executionHandler():
                 try:
                     policyData = policy.select(policy.q.name == policyName)[0]
                 except:
-                    notAnalyzedPolicies.append((policyName,"Policy Not Found"))
+                    notAnalyzedPolicies.append((policyName,userMessages.policyNotFound))
                     continue
                 try:
                     ra.generate_report(policyData.text, policyName, policyData.url)

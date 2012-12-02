@@ -8,7 +8,7 @@ class inputType:
     # TODO: Let's define here as early as possible ALL possible actions our program
     
     exitProgram = 0
-    deletePolicies = 1
+    deletePolicy = 1
     insertPolicy = 2
     viewPolicies = 3
     addMetrics = 4
