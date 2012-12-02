@@ -37,8 +37,13 @@ class commandLineHandler():
         return it to.
         '''
         type = inputType()
+       
         if(executionStatus[0] == 0):
-            print userMessages.executionSuccessful
+            if(executionStatus[2] == inputType.viewPolicies):
+                for policyName in executionStatus[1]:
+                    print policyName
+            else:
+                print userMessages.executionSuccessful
         elif(executionStatus[0] == 1):
             print "Error:", executionStatus[1]
         elif(executionStatus[0] == 2):
@@ -48,7 +53,8 @@ class commandLineHandler():
                     print(policy)
                 print('\nThe Following Policies were not analyzed succesfully')
                 for policyTouple in executionStatus[1][1]:
-                    print policyTouple[0], "Error:", policyTouple[1] 
+                    print policyTouple[0], "Error:", policyTouple[1]
+
         while (1):
             #welcome text only after executing first time
             if (firstRun == True):
