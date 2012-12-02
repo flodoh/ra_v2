@@ -50,7 +50,6 @@ class dalechallgraph(object):
         values = []
         sentence_values = []
         max_words = 0
-        print "\n\n\nhalllo\n\n\n"
         for sentence in raw_sentences:
             raw_words = ta.getWords(sentence)
             if len(raw_words) > max_words:

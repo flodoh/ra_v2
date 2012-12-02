@@ -27,7 +27,6 @@ class box_plot(object):
             site_values = []
 
         a = array(values)
-        print a
   
         boxplot(a)
 

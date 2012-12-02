@@ -102,7 +102,7 @@ class commandLineHandler():
                     if(num > 1):
                         return (type.analyzePolicies, inputStrings[1:])
                     else:
-                        print userMessages.m1
+                        print userMessages.m0
         
                 elif inputStrings[0] == "help":
                     print self.optionList

@@ -7,7 +7,7 @@ of the program. If later the code is used for a web app the messages can be easy
 '''
 
 class userMessages:
-    
+    m0 = "Wrong number of input Parameters, at least one policy needs to be inserted\n\n"
     m1 = "Wrong number of input Parameters, at least one metric needs to be inserted\n\n"
     m2 = "This is no valid command, you can get the list of commands by typing \"help\"\n"
     m3 = "Wrong number of input Parameters, at least one Policy needs to be inserted\n\n"

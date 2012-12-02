@@ -79,8 +79,6 @@ class FryChart(object):
                 site_words.append(ta.getWords(sentence))
                 sentence_lengths.append(len(ta.getWords(sentence)))
             
-            print word_count
-            
             sample_size = ""
             if word_count < 100:
                 sample_size = word_count
@@ -97,7 +95,6 @@ class FryChart(object):
             j = 1
             
             while j <= number_of_iterations:
-                print j
                 count_index = j - 1
                 
                 if word_count < 100:
@@ -105,10 +102,10 @@ class FryChart(object):
                 else:
                     start = randint(0, word_count - (sample_size * number_of_iterations))
                 
-                #Silben zählen
+                #Silben zaehlen
                 sample_words = words[start:start + sample_size]
     
-                #Sätze zählen
+                #Sätze zaehlen
                 
                 #Beginn des Samples finden
                 i = 0
