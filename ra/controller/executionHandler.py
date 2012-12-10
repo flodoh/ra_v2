@@ -18,7 +18,8 @@ class executionHandler():
     by the commandLindeHandler to run the wanted function. It returns an info about success or error of execution.
     The inputs need to be formaly valid.
     '''
-       
+    def __init__(self,outputDirectory):
+        self.outputDirectory = outputDirectory
     #Gets the type and all parameters needed to execute the different functions
     def execute(self, inputData):
         
@@ -28,7 +29,7 @@ class executionHandler():
         
         # If the user wants to run A1 on single policies    
         elif(inputData[0] == inputType.analyzePolicies):
-            return self.runA1(inputData[1])
+            return self.runA1(inputData[1], self.outputDirectory)
        
         #If the user wants to viewAllPolices
         elif(inputData[0] == inputType.viewPolicies):
@@ -50,7 +51,7 @@ class executionHandler():
             return (0, 0,inputType.insertPolicy)
             
             #analyzes one ore more policies but does not compare them
-    def runA1(self, policyList):
+    def runA1(self, policyList, outputDirectory):
         try:
             ra = ReadabilityAnalyzer()
         except Exception as e:
@@ -64,7 +65,7 @@ class executionHandler():
                 notAnalyzedPolicies.append((policyName,userMessages.policyNotFound))
                 continue
             try:
-                ra.generate_report(policyData.text, policyName, policyData.url)
+                ra.generate_report(policyData.text, policyName, policyData.url, outputDirectory)
                 analyzedPolicies.append(policyName)
             except Exception as e:
                 notAnalyzedPolicies.append((policyName,e))

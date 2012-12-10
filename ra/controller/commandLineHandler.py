@@ -6,6 +6,7 @@ from util.inputType import *
 from util.validation import *
 from util.userMessages import *
 import sys
+import os
 
 class commandLineHandler():
     '''
@@ -36,6 +37,8 @@ class commandLineHandler():
         Task of this method: Communicate with the user, ask him for a command, check this command and if valid
         return it to.
         '''
+        
+        outPutDirectory = 3
         type = inputType()
        
         if(executionStatus[0] == 0):
@@ -117,6 +120,55 @@ class commandLineHandler():
             except IndexError:
                 print userMessages.m2 
                 
+    def determineOutputDirectory(self):
+        currentdir = os.getcwd()
+        #checks if a outPutDirectory.txt file exists, which contains the outputdirectory, maybe change the location of this file
+        outPutDirectoryFile = False
+        outputdirectory = ''
+        FirstRun = True
+        try:
+            in_file = open(currentdir+"/outputDirectory.txt", "r")
+            outputdirectory = in_file.read()
+            outPutDirectoryFile = True
+        except IOError as e:
+            while(1):
+                print userMessages.enterInputDirectory
+                try:
+                    outputdirectory = raw_input()
+                    break
+                except Exception as e:
+                    print "Wrong Input"
+                except Exception as e:
+                    return(1,e)
+        
+        if(os.path.isdir(outputdirectory) != True):
+            while(1):       
+                #===============================================================
+                # try:
+                #    os.mkdir(outputdirectory)
+                #    break
+                # except Exception as e:
+                #        outputdirectory = raw_input()
+                #        if(FirstRun == True):
+                #            FirstRun = False
+                #        else:
+                #            userMessages.directoryCreationError
+                #===============================================================
+                try:
+                    os.mkdir(outputdirectory)
+                except Exception as e:
+                     print e
+                if(os.path.isdir(outputdirectory) == True):
+                    break
+                else:
+                    print userMessages.directoryCreationError
+                     
+        if(outPutDirectoryFile  == False):
+            outputFile = open(currentdir+"/outputDirectory.txt", "w")
+            outputFile.write(outputdirectory)
+        return (0,outputdirectory)
+    
+    
 # class MyClass(object):
 #    '''
 #    classdocs
@@ -126,5 +178,4 @@ class commandLineHandler():
 #        '''
 #        Constructor
 #        '''
-#
         

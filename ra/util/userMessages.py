@@ -15,3 +15,5 @@ class userMessages:
     urlNotValid = "Sorry, URL is not valid"
     executionSuccessful ="Execution was successful"
     policyNotFound = "Policy not found"
+    enterInputDirectory = "Please enter a directory to store the outputData"
+    directoryCreationError  = "Could not create directory, pls enter another one"

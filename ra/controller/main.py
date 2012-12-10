@@ -11,9 +11,15 @@ from model.policy import policy
 from commandLineHandler import commandLineHandler
 
 def main():
+    
     inputHandler   =  commandLineHandler()
+    returnValue = inputHandler.determineOutputDirectory()
+    if (1 == returnValue[0]):
+         sys.exit(1)
+    outputDirectory = returnValue[1]
     firstRun = True
-    executioner = executionHandler()
+    executioner = executionHandler(outputDirectory)
+      
     # during running the program executionStatus is a tuple with 0 (successful) , 1 (error)
     # and error massage dependent on e is printed
     executionStatus = (-1,)
