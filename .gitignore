@@ -3,6 +3,7 @@ ra/output/*
 ra/output_comparison/*
 ra/.settings/*
 ra/.DS_Store
+ra/controler/.DS_Store
 ra/nltk_contrib/*.pyc
 ra/.settings/*
 ra/controller/outputDirectory.txt
