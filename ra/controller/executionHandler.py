@@ -34,7 +34,12 @@ class executionHandler():
         #If the user wants to viewAllPolices
         elif(inputData[0] == inputType.viewPolicies):
             return self.viewAllPolicies()
-        #inserts policy into database, if policyName does not exist in the database yet
+        
+        # If the user wants to update a policy
+        elif(inputData[0] == inputType.updatePolicy):
+            return self.updatePolicy(inputData[1][0],inputData[1][1],inputData[1][2])
+    
+    #inserts policy into database, if policyName does not exist in the database yet
     def createPolicy(self, name, url, company, date, text, updatedText):
         try:
             in_file = open(text, "r")
@@ -50,7 +55,7 @@ class executionHandler():
         else: 
             return (0, 0,inputType.insertPolicy)
             
-            #analyzes one ore more policies but does not compare them
+    #analyzes one ore more policies but does not compare them
     def runA1(self, policyList, outputDirectory):
         try:
             ra = ReadabilityAnalyzer()
@@ -81,3 +86,18 @@ class executionHandler():
         for policyItem in policies:
             listOfPolicies.append(policyItem.name)
         return  (0, listOfPolicies, inputType.viewPolicies)
+    
+    # ToDo: noch verbessern! Errors catchen etc.
+    def updatePolicy(self, policyName, fieldToUpdate, newContent):
+        policyForUpdate = policy.select(policy.q.name == policyName)[0]
+        if (fieldToUpdate == "name"):
+            policyForUpdate.name = newContent 
+        elif (fieldToUpdate == "url"):
+            policyForUpdate.url = newContent
+        elif (fieldToUpdate == "company"):
+            policyForUpdate.company = newContent
+        elif (fieldToUpdate == "text"):
+            policyForUpdate.text = newContent
+        elif (fieldToUpdate == "updatedText"):
+            policyForUpdate.updatedText = newContent
+        return  (0, 0, inputType.updatePolicy)

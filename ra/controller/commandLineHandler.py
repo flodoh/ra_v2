@@ -17,8 +17,9 @@ class commandLineHandler():
     '''
     
     optionList = "Interactions with database\n\
-        To insert Policy, please enter:                              insert \"PolicyName\" \"Url of Policy\" \"Company of PolicyFile\" \"Original Text of Policy\" \"Updated Text of Policy (optional)\"  \n\
-        To delete one or more Policies, please enter:                delete \"policy A, policy B, ...\"\n\
+        To insert Policy, please enter:                              insert \"PolicyName\" \"Url of Policy\" \"Company of PolicyFile\" \"Original text of Policy\" \"Updated Text of Policy (optional)\"  \n\
+        To delete one or more Policies, please enter:                delete \"Policy A, Policy B, ...\"\n\
+        To update a Policy, please enter:                            update \"PolicyName\" \"Field to update (name/url/company/text/updatedText)\" \"New Content\"\n\
         To view all inserted policies, please enter:                 viewPolicies\n\
         \nAnalyze policies\n\
         To add metrics to default metrics, please enter:             add \"metric A, metric B, ...\"\n\
@@ -91,7 +92,16 @@ class commandLineHandler():
                             return (type.insertPolicy, inputStrings[1:])
                         else:
                             print userMessages.urlNotValid
-                    
+                            
+                elif inputStrings[0] == "update":
+                    if(num != 4):
+                        print "Wrong number of input Parameters, please check, if you typed all needed parameters. \n\n"
+                    else:
+                        if (inputStrings[2] =="name" or inputStrings[2] =="url" or inputStrings[2] =="company" or inputStrings[2] =="text" or inputStrings[2] =="updatedText"):
+                            return (type.updatePolicy,inputStrings[1:])
+                        else:
+                            print "Please choose name, url, company, text or updatedText as a parameter. \n\n"
+                                   
                 elif ((inputStrings[0] == "viewPolicies") & (num == 1)):
                     return (type.viewPolicies,"")
                  
@@ -132,6 +142,7 @@ class commandLineHandler():
             outPutDirectoryFile = True
         except IOError as e:
             while(1):
+                # ask the user to type in the directory
                 print userMessages.enterInputDirectory
                 try:
                     outputdirectory = raw_input()
@@ -168,14 +179,5 @@ class commandLineHandler():
             outputFile.write(outputdirectory)
         return (0,outputdirectory)
     
-    
-# class MyClass(object):
-#    '''
-#    classdocs
-#    '''
-# 
-#    def __init__(self):
-#        '''
-#        Constructor
-#        '''
+
         

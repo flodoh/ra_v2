@@ -11,8 +11,9 @@ class inputType:
     deletePolicy = 1
     insertPolicy = 2
     viewPolicies = 3
-    addMetrics = 4
-    subtractMetric = 5
-    analyzePolicies = 6
+    updatePolicy = 4
+    addMetrics = 5
+    subtractMetric = 6
+    analyzePolicies = 7
 
     
