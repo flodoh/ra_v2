@@ -20,8 +20,9 @@ def main():
     firstRun = True
     executioner = executionHandler(outputDirectory)
       
-    # during running the program executionStatus is a tuple with 0 (successful) , 1 (error)
-    # and error massage dependent on e is printed
+    # during running the program executionStatus will exist of 3 informations: 1. The status (0 for success, 1 for error,
+    # 2 for a mix of success and errors), 2. Additional info like the error, list of policies etc. (Based on the status),
+    # 3. The type of execution
     executionStatus = (-1,)
     # TODO: in future check if database connection could be established, if not tell user via commandLine
     while(1):

@@ -17,3 +17,7 @@ class userMessages:
     policyNotFound = "Policy not found"
     enterInputDirectory = "Please enter a directory to store the outputData"
     directoryCreationError  = "Could not create directory, pls enter another one"
+    policiesAnalyzedSuccessfully ="\nThe Following Policies were analyzed successfully:"
+    policiesNotAnalyzedSuccessfully = "\nThe Following Policies were not analyzed successfully:"
+    policiesDeletedSuccessfully ="\nThe Following Policies were deleted successfully:"
+    policiesNotDeletedSuccessfully = "\nThe Following Policies were not deleted successfully:"

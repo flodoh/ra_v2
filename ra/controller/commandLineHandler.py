@@ -21,12 +21,13 @@ class commandLineHandler():
         To delete one or more Policies, please enter:                delete \"Policy A, Policy B, ...\"\n\
         To update a Policy, please enter:                            update \"PolicyName\" \"Field to update (name/url/company/text/updatedText)\" \"New Content\"\n\
         To view all inserted policies, please enter:                 viewPolicies\n\
+        To view details of a policy, please enter:                   viewDetails \"PolicyName\" \n\
         \nAnalyze policies\n\
         To add metrics to default metrics, please enter:             add \"metric A, metric B, ...\"\n\
         To remove metrics from default metrics, please enter:        subtract \"metric A, metric B, ...\"\n\
         To apply metrics on one or more policis, please enter:       analyze \"policy A, policy B, ...\"\n\
         \nAdmin\n\
-        To get this option list, please enter:                       help\n\
+        To get this option list, please enter:                       help \n\
         " 
     exitMassage = "\nTo exit the program, pls enter:                                      exit  \n"
     welcomeText = "Please choose one option from the list below and enter the appropriate instructions\n(replace expressions between quotes \" \" by adequate names)\n\n"+optionList+exitMassage
@@ -42,37 +43,63 @@ class commandLineHandler():
         outPutDirectory = 3
         type = inputType()
        
+        #================ Give the user a status about the previous execution ======================      
+        # if the last execution was successful
         if(executionStatus[0] == 0):
+            # if the user want to view all policies
             if(executionStatus[2] == inputType.viewPolicies):
                 for policyName in executionStatus[1]:
                     print policyName
+                    
+            # if the user wants to view all details of a policy
+            elif(executionStatus[2] == inputType.viewDetails):
+                policyToView = executionStatus[1]
+                print "PolicyName:", '"'+policyToView.name+'",', "Url of Policy:", '"'+policyToView.url+'",', "Company of Policy:", '"'+policyToView.company+'"'
+                print "Text of Policy:"
+                print '"'+policyToView.text+'"'
+                print ""
+                print "Updated Text of Policy:"
+                print '"'+policyToView.updatedText+'"'
             else:
                 print userMessages.executionSuccessful
+        # if there was an error last execution
         elif(executionStatus[0] == 1):
             print "Error:", executionStatus[1]
+        # if there was success and errors
         elif(executionStatus[0] == 2):
+            # if the user wants run a1
             if(executionStatus[2] == inputType.analyzePolicies):
-                print('\nThe Following Policies were analyzed succesfully')
+                print(userMessages.policiesAnalyzedSuccessfully)
                 for policy in executionStatus[1][0]:
                     print(policy)
-                print('\nThe Following Policies were not analyzed succesfully')
+                print(userMessages.policiesNotAnalyzedSuccessfully)
                 for policyTouple in executionStatus[1][1]:
-                    print policyTouple[0], "Error:", policyTouple[1]
+                    print policyTouple[0], "Error:", policyTouple[1]    
+            # if the user wants to delete policies     
+            if(executionStatus[2] == inputType.deletePolicies):
+                print(userMessages.policiesDeletedSuccessfully)
+                for policy in executionStatus[1][0]:
+                    print(policy)
+                print(userMessages.policiesNotDeletedSuccessfully)
+                for policyTouple in executionStatus[1][1]:
+                    print policyTouple[0], "Error:", policyTouple[1]     
+        #================ /Give the user a status about the previous execution ======================
 
         while (1):
             #welcome text only after executing first time
             if (firstRun == True):
                 print self.welcomeText
                 firstRun = False
+                
+            #collect the command of the user
             input = raw_input()
+            
             if input == 'exit':
                 print userMessages.exit
                 return(type.exitProgram, "")
-            #TODO: funktioniert derzeit nur mit einem Wort als text
             inputStrings = list()
             inputStrings = input.split()
             num = len(inputStrings)
-            #try faengt den error, wenn der user nichts eingibt
             try:
                 if inputStrings[0] == "delete":
                     if(num < 2):
@@ -98,10 +125,14 @@ class commandLineHandler():
                         print "Wrong number of input Parameters, please check, if you typed all needed parameters. \n\n"
                     else:
                         if (inputStrings[2] =="name" or inputStrings[2] =="url" or inputStrings[2] =="company" or inputStrings[2] =="text" or inputStrings[2] =="updatedText"):
-                            return (type.updatePolicy,inputStrings[1:])
+                                validator = validation()
+                                if((inputStrings[2] =="url" and validator.isUrlValid(inputStrings[3])) or inputStrings[2] !="url" ):
+                                    return (type.updatePolicy,inputStrings[1:])
+                                else:
+                                    print(userMessages.urlNotValid)
                         else:
-                            print "Please choose name, url, company, text or updatedText as a parameter. \n\n"
-                                   
+                            print "Please choose name, url, company, text or updatedText as a parameter. \n\n"       
+                
                 elif ((inputStrings[0] == "viewPolicies") & (num == 1)):
                     return (type.viewPolicies,"")
                  
@@ -110,6 +141,12 @@ class commandLineHandler():
                         return (type.addMetrics, inputStrings[1:])
                     else:
                         print userMessages.m1
+                        
+                elif (inputStrings[0] == "viewDetails"):
+                    if (num!=2):
+                        print "Please give exactly one policy name as a parameter. \n\n"
+                    else:
+                        return (type.viewDetails, inputStrings[1:])
                  
                 elif inputStrings[0] == "substract":
                     if(num > 1):
@@ -126,8 +163,10 @@ class commandLineHandler():
                 elif inputStrings[0] == "help":
                     print self.optionList
                 else:
+                    # if the user types bullshit
                     print userMessages.m2 
             except IndexError:
+                # if the user types nothing
                 print userMessages.m2 
                 
     def determineOutputDirectory(self):
