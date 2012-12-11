@@ -110,6 +110,7 @@ class executionHandler():
                 try:
                     in_file = open(newContent, "r")
                     textContent = in_file.read()
+                    policyForUpdate.text = textContent 
                 except Exception as e:
                     # if there are problems while opening the file return the error
                     return(1, e, inputType.insertPolicy)
