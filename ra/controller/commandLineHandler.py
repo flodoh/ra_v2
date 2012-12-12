@@ -32,19 +32,23 @@ class commandLineHandler():
     exitMassage = "\nTo exit the program, pls enter:                                      exit  \n"
     welcomeText = "Please choose one option from the list below and enter the appropriate instructions\n(replace expressions between quotes \" \" by adequate names)\n\n"+optionList+exitMassage
    
-    def receiveAndValidateInput(self, executionStatus, firstRun):
+    def userCommunicator(self, executionStatus, firstRun):
         '''
         Inputs is information about the status of the last communication with the executionHandler()
         and information, if this function is run for the very first time. 
         Task of this method: Communicate with the user, ask him for a command, check this command and if valid
         return it to.
         '''
+  
+        self.printStatusOfExecution(executionStatus)
         
-        outPutDirectory = 3
-        type = inputType()
-       
-        #================ Give the user a status about the previous execution ======================      
-        # if the last execution was successful
+        return self.receiveAndValidateInput(firstRun)
+    
+    
+
+    
+    def printStatusOfExecution(self, executionStatus):
+         # if the last execution was successful
         if(executionStatus[0] == 0):
             # if the user want to view all policies
             if(executionStatus[2] == inputType.viewPolicies):
@@ -67,7 +71,7 @@ class commandLineHandler():
             print "Error:", executionStatus[1]
         # if there was success and errors
         elif(executionStatus[0] == 2):
-            # if the user wants run a1
+            # if the user wanted to run a1
             if(executionStatus[2] == inputType.analyzePolicies):
                 print(userMessages.policiesAnalyzedSuccessfully)
                 for policy in executionStatus[1][0]:
@@ -75,16 +79,19 @@ class commandLineHandler():
                 print(userMessages.policiesNotAnalyzedSuccessfully)
                 for policyTouple in executionStatus[1][1]:
                     print policyTouple[0], "Error:", policyTouple[1]    
-            # if the user wants to delete policies     
+            # if the user wanted to delete policies     
             if(executionStatus[2] == inputType.deletePolicies):
                 print(userMessages.policiesDeletedSuccessfully)
                 for policy in executionStatus[1][0]:
                     print(policy)
                 print(userMessages.policiesNotDeletedSuccessfully)
                 for policyTouple in executionStatus[1][1]:
-                    print policyTouple[0], "Error:", policyTouple[1]     
-        #================ /Give the user a status about the previous execution ======================
-
+                    print policyTouple[0], "Error:", policyTouple[1]          
+  
+  
+    def receiveAndValidateInput(self, firstRun):
+        type = inputType()
+       
         while (1):
             #welcome text only after executing first time
             if (firstRun == True):
@@ -168,55 +175,8 @@ class commandLineHandler():
             except IndexError:
                 # if the user types nothing
                 print userMessages.m2 
-                
-    def determineOutputDirectory(self):
-        currentdir = os.getcwd()
-        #checks if a outPutDirectory.txt file exists, which contains the outputdirectory, maybe change the location of this file
-        outPutDirectoryFile = False
-        outputdirectory = ''
-        FirstRun = True
-        try:
-            in_file = open(currentdir+"/outputDirectory.txt", "r")
-            outputdirectory = in_file.read()
-            outPutDirectoryFile = True
-        except IOError as e:
-            while(1):
-                # ask the user to type in the directory
-                print userMessages.enterInputDirectory
-                try:
-                    outputdirectory = raw_input()
-                    break
-                except Exception as e:
-                    print "Wrong Input"
-                except Exception as e:
-                    return(1,e)
-        
-        if(os.path.isdir(outputdirectory) != True):
-            while(1):       
-                #===============================================================
-                # try:
-                #    os.mkdir(outputdirectory)
-                #    break
-                # except Exception as e:
-                #        outputdirectory = raw_input()
-                #        if(FirstRun == True):
-                #            FirstRun = False
-                #        else:
-                #            userMessages.directoryCreationError
-                #===============================================================
-                try:
-                    os.mkdir(outputdirectory)
-                except Exception as e:
-                     print e
-                if(os.path.isdir(outputdirectory) == True):
-                    break
-                else:
-                    print userMessages.directoryCreationError
-                     
-        if(outPutDirectoryFile  == False):
-            outputFile = open(currentdir+"/outputDirectory.txt", "w")
-            outputFile.write(outputdirectory)
-        return (0,outputdirectory)
+  
     
+       
 
         

@@ -98,6 +98,7 @@ class executionHandler():
             listOfPolicies.append(policyItem.name)
         return  (0, listOfPolicies, inputType.viewPolicies)
     
+    # updates one value of one policy-dataset in the database
     def updatePolicy(self, policyName, fieldToUpdate, newContent):
         try:
             policyForUpdate = policy.select(policy.q.name == policyName)[0]
@@ -126,6 +127,7 @@ class executionHandler():
                 policyForUpdate.updatedText = newContent
             return  (0, 0, inputType.updatePolicy)
     
+    # returns the policy-dataset (if existent) from the database, so that its details can be displayed in later programm execution
     def viewDetails(self, policyName):
             try:
                 policyToView = policy.select(policy.q.name == policyName)[0]
@@ -135,7 +137,8 @@ class executionHandler():
             else:
                 return (0,policyToView,inputType.viewDetails)
         
-        
+     
+    # deletes one or more policiy-datasets from the database (if existend) and returns the list of deleted (existent) and not deleted (not existent)  policy-datasets 
     def deletePolicies(self, policyList):
         deletedPolicies = []
         notDeletedPolicies = []

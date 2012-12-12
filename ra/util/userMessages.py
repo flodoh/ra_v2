@@ -7,6 +7,7 @@ of the program. If later the code is used for a web app the messages can be easy
 '''
 
 class userMessages:
+    programmStarted  = "The readability analyzer has started"
     m0 = "Wrong number of input Parameters, at least one policy needs to be inserted\n\n"
     m1 = "Wrong number of input Parameters, at least one metric needs to be inserted\n\n"
     m2 = "This is no valid command, you can get the list of commands by typing \"help\"\n"
@@ -15,7 +16,7 @@ class userMessages:
     urlNotValid = "Sorry, URL is not valid"
     executionSuccessful ="Execution was successful"
     policyNotFound = "Policy not found"
-    enterInputDirectory = "Please enter a directory to store the outputData"
+    workingDirectory = "Please enter a working directory"
     directoryCreationError  = "Could not create directory, pls enter another one"
     policiesAnalyzedSuccessfully ="\nThe Following Policies were analyzed successfully:"
     policiesNotAnalyzedSuccessfully = "\nThe Following Policies were not analyzed successfully:"
