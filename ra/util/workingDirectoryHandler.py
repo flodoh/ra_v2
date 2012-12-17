@@ -38,13 +38,14 @@ def determineWorkingDirectory():
             if(fatherDirectoryExists(workingDirectory) == False):
                 print "Error: FatherDirectory of working directory:\"", workingDirectory,"\"does not exist, please enter another one"
                 continue
-            if(workingdirectoryFile == False):
+            if(workingDirectoryFile == False):
                 try:
                     os.mkdir(workingDirectory)
                     break
                 except Exception as e:
                     print "Error: directory already exists, please enter another one"
                 print "Working Directory\"", workingDirectory, "\" succesfully created "
+                workingDirectoryFile = True
             break
         if(workingDirectoryFile  == False):
             outputFile = open(utilDirectory+"/workingDirectory.txt", "w")
