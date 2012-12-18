@@ -43,8 +43,6 @@ class commandLineHandler():
         self.printStatusOfExecution(executionStatus)
         
         return self.receiveAndValidateInput(firstRun)
-    
-    
 
     
     def printStatusOfExecution(self, executionStatus):

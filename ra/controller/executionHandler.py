@@ -51,6 +51,7 @@ class executionHandler():
             return self.deletePolicies(policyListToDelete)
     
     # inserts policy into database, if policyName does not exist in the database yet
+    # TODO: read in also the Content of updatedText 
     def createPolicy(self, name, url, company, date, text, updatedText):
         try:
             in_file = open(text, "r")
@@ -106,7 +107,7 @@ class executionHandler():
             # if policy does not exist, return the message for that
             return (1,userMessages.policyNotFound, inputType.updatePolicy)
         else: 
-            # Check, if the given path for the text-file does exist
+            # Read in the Content of the file with the given path
             if (fieldToUpdate == "text"):
                 try:
                     in_file = open(newContent, "r")
@@ -114,17 +115,21 @@ class executionHandler():
                     policyForUpdate.text = textContent 
                 except Exception as e:
                     # if there are problems while opening the file return the error
-                    return(1, e, inputType.insertPolicy)
-                else:
-                    policyForUpdate.text = newContent
+                    return(1, e, inputType.updatePolicy)
+            elif (fieldToUpdate == "updatedText"):
+                try:
+                    in_file = open(newContent, "r")
+                    textContent = in_file.read()
+                    policyForUpdate.updatedText = textContent 
+                except Exception as e:
+                    # if there are problems while opening the file return the error
+                    return(1, e, inputType.updatePolicy)
             elif (fieldToUpdate == "name"):
                 policyForUpdate.name = newContent 
             elif (fieldToUpdate == "url"):
                 policyForUpdate.url = newContent
             elif (fieldToUpdate == "company"):
                 policyForUpdate.company = newContent
-            elif (fieldToUpdate == "updatedText"):
-                policyForUpdate.updatedText = newContent
             return  (0, 0, inputType.updatePolicy)
     
     # returns the policy-dataset (if existent) from the database, so that its details can be displayed in later programm execution
