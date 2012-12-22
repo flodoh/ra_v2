@@ -133,7 +133,7 @@ class ReadabilityAnalyzer(object):
         if save_db == True:
             new_policy(name, text, url)
         
-        co.create_report(data[name])
+        co.create_report(data[name],outputDirectory)
         
         return True
     

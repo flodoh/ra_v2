@@ -36,10 +36,11 @@ def substitute(values):
     
     return str(t)
 
-def save_report(content, name):
+def save_report(content, name, outputDirectory):
     #save t as pol_name.html in /html_ouput/
-    currentdir = os.curdir
-    filename = "../output/html_output/" + name + ".html"
+    #currentdir = os.curdir
+    #filename = "../output/html_output/" + name + ".html"
+    filename = outputDirectory + "/" + name + ".html"
     print filename
     f = open(filename, "w")
     f.write(content)
@@ -52,6 +53,6 @@ def open_report(path):
     #oeffnet direkt den Browser. Funktioniert aber nur bei Windows
     #os.startfile(path)
     
-def create_report(dict):
+def create_report(dict,outputDirectory):
     new_report = substitute(dict)
-    save_report(new_report, dict["name"])
+    save_report(new_report, dict["name"], outputDirectory)
