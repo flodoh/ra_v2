@@ -102,7 +102,8 @@ class ReadabilityAnalyzer(object):
         
         #Ordner fr Bilder erstellen (hochzaehlen wenn schon vorhanden
         #path = self.TEMPLATE_PATH + name + " 0001"outputDirectory
-        path = outputDirectory + name + " 0001"
+        path = outputDirectory + "/" + name + " 0001"
+        
         i = 2
         while os.path.exists(path):
             path = path[:-4]

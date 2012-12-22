@@ -15,7 +15,7 @@ def determineWorkingDirectory():
         FirstRun = True
         try:
             #dont know if this works at all os
-            utilDirectory = currentdir+"\..\util"
+            utilDirectory = currentdir+"/../util"
             in_file = open(utilDirectory+"/workingDirectory.txt", "r")
             workingDirectory = in_file.read()
             workingdirectoryFile = True
