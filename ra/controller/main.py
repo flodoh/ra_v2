@@ -5,6 +5,9 @@ Created on 19.11.2012
 @function: this controller runs the main loop until the user exits the program
 '''
 import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from util.inputType import *
 from util.userMessages import *
 from util.workingDirectoryHandler import determineWorkingDirectory
