@@ -54,12 +54,18 @@ class executionHandler():
     # TODO: read in also the Content of updatedText 
     def createPolicy(self, name, url, company, date, text, updatedText):
         try:
-            in_file = open(text, "r")
-            textContent = in_file.read()
+            in_fileText = open(text, "r")
+            textContent = in_fileText.read()
+        except Exception as e:
+                return(1, e, inputType.insertPolicy)
+            
+        try:
+            in_fileUpdatedText = open(updatedText, "r")
+            updatedTextContent = in_fileUpdatedText.read()
         except Exception as e:
                 return(1, e, inputType.insertPolicy)
         try:
-            policy(name=name, url=url, company=company, date=date, text=textContent, updatedText=updatedText)
+            policy(name=name, url=url, company=company, date=date, text=textContent, updatedText=updatedTextContent)
             # except DuplicateEntryError as e:
             #    return (1,e)
         except Exception as e:

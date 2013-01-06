@@ -50,6 +50,8 @@ class commandLineHandler():
         if(executionStatus[0] == 0):
             # if the user want to view all policies
             if(executionStatus[2] == inputType.viewPolicies):
+                if len(executionStatus[1]) == 0:
+                    print "no policies saved in database"
                 for policyName in executionStatus[1]:
                     print policyName
                     

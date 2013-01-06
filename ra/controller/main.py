@@ -7,6 +7,7 @@ Created on 19.11.2012
 import sys
 import os
 
+#the following line assures that the programm can be started from the command line
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from util.inputType import *
 from util.userMessages import *
