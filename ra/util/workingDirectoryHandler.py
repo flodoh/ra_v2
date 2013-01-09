@@ -18,7 +18,7 @@ def determineWorkingDirectory():
             utilDirectory = currentdir+"/../util"
             in_file = open(utilDirectory+"/workingDirectory.txt", "r")
             workingDirectory = in_file.read()
-            workingdirectoryFile = True
+            workingDirectoryFile = True
         except IOError as e:
             while(1):
                 # ask the user to type in the directory
