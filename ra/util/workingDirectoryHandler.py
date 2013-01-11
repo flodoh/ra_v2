@@ -12,12 +12,15 @@ def determineWorkingDirectory():
         #checks if a outPutDirectory.txt file exists, which contains the outputdirectory, maybe change the location of this file
         workingDirectoryFile = False
         workingDirectory= ''
+        workingDirectoryOld = ''
         FirstRun = True
         try:
             #dont know if this works at all os
             utilDirectory = currentdir+"/../util"
             in_file = open(utilDirectory+"/workingDirectory.txt", "r")
-            workingDirectory = in_file.read()
+            workingDirectoryOld = in_file.read()
+            in_file.close()
+            workingDirectory = workingDirectoryOld
             workingDirectoryFile = True
         except IOError as e:
             while(1):
@@ -29,27 +32,33 @@ def determineWorkingDirectory():
                 except Exception as e:
                     return(1,e)
 
-
         while(1):
             if(FirstRun == True):
                 FirstRun = False
             else:
                 workingDirectory = raw_input()
             if(fatherDirectoryExists(workingDirectory) == False):
-                print "Error: FatherDirectory of working directory:\"", workingDirectory,"\"does not exist, please enter another one"
+                print "Error: FatherDirectory of working directory:\"", workingDirectory,"\" does not exist, please enter another one"
                 continue
-            if(workingDirectoryFile == False):
+            if(os.path.isdir(workingDirectory)):
+               a = 2
+            if((workingDirectoryFile == False) or  not((os.path.isdir(workingDirectory)))):
                 try:
                     os.mkdir(workingDirectory)
+                    print "Working Directory\"", workingDirectory, "\" succesfully created "
                     break
                 except Exception as e:
                     print "Error: directory already exists, please enter another one"
-                print "Working Directory\"", workingDirectory, "\" succesfully created "
-                workingDirectoryFile = True
+                    continue
             break
+               # workingDirectoryFile = True
+            #break
+
         if(workingDirectoryFile  == False):
             outputFile = open(utilDirectory+"/workingDirectory.txt", "w")
             outputFile.write(workingDirectory)
+            outputFile.close()
+        #workingDirectory#.decode('base64')
         return (0,workingDirectory)
 
 def fatherDirectoryExists(workingDirectory):
