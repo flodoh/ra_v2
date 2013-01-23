@@ -3,8 +3,10 @@ Created on 12.12.2012
 
 @author: Simon
 '''
+import distutils.dir_util
 import os
 from userMessages import *
+
 
 def determineWorkingDirectory():
         
@@ -43,8 +45,12 @@ def determineWorkingDirectory():
             if(os.path.isdir(workingDirectory)):
                a = 2
             if((workingDirectoryFile == False) or  not((os.path.isdir(workingDirectory)))):
+                htmloutput = currentdir+"/../output/html_output/"
                 try:
-                    os.mkdir(workingDirectory)
+                    os.mkdir(workingDirectory)                
+                    distutils.dir_util.copy_tree(htmloutput, workingDirectory)
+                    distutils.dir_util.copy_tree(htmloutput, workingDirectory)
+                    distutils.dir_util.copy_tree(htmloutput, workingDirectory)
                     print "Working Directory\"", workingDirectory, "\" succesfully created "
                     break
                 except Exception as e:
