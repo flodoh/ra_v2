@@ -138,10 +138,10 @@ class ReadabilityAnalyzer(object):
         return True
     
     #creates the comparison report for several texts in data object
-    def create_benchmark(self, data={}):
+    def create_benchmark(self, data={},  outputDirectory = ''):
 
         #Ordner fr Bilder erstellen
-        path = self.COMPARISON_TEMPLATE_PATH + "Report" + " 0001"
+        path = outputDirectory + "/" + "Report" + " 0001"
         i = 2
         #Endung hochzaehlen, bis ein Ordner erstellt werden kann, der noch nicht existiert
         while os.path.exists(path):

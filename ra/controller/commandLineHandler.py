@@ -23,9 +23,9 @@ class commandLineHandler():
         To view all inserted policies, please enter:                 viewPolicies\n\
         To view details of a policy, please enter:                   viewDetails \"PolicyName\" \n\
         \nAnalyze policies\n\
-        To add metrics to default metrics, please enter:             add \"metric A, metric B, ...\"\n\
-        To remove metrics from default metrics, please enter:        subtract \"metric A, metric B, ...\"\n\
         To apply metrics on one or more policis, please enter:       analyze \"policy A, policy B, ...\"\n\
+        To compare all metrics in DB, please enter:                  compareAll\n\
+        To compare specific metrics in DB, please enter:             compare \"policy A, policy B, ...\"\n\
         \nAdmin\n\
         To get this option list, please enter:                       help \n\
         " 
@@ -78,8 +78,17 @@ class commandLineHandler():
                     print(policy)
                 print(userMessages.policiesNotAnalyzedSuccessfully)
                 for policyTouple in executionStatus[1][1]:
+                    print policyTouple[0], "Error:", policyTouple[1] 
+             # if the user wanted to run a2
+            if(executionStatus[2] == inputType.comparePolicies):
+                print(userMessages.policiesAnalyzedSuccessfully)
+                for policy in executionStatus[1][0]:
+                    print(policy)
+                print(userMessages.policiesNotAnalyzedSuccessfully)
+                for policyTouple in executionStatus[1][1]:
                     print policyTouple[0], "Error:", policyTouple[1]    
-            # if the user wanted to delete policies     
+            # if the user wanted to delete policies   
+            # if the user wanted to delete policies
             if(executionStatus[2] == inputType.deletePolicies):
                 print(userMessages.policiesDeletedSuccessfully)
                 for policy in executionStatus[1][0]:
@@ -166,7 +175,19 @@ class commandLineHandler():
                         return (type.analyzePolicies, inputStrings[1:])
                     else:
                         print userMessages.m0
-        
+                
+                elif inputStrings[0] == "compare":
+                    if(num > 1):
+                        return (type.comparePolicies, inputStrings[1:])
+                    else:
+                        print userMessages.m0
+                        
+                elif inputStrings[0] == "compareAll":
+                    if(num == 1):
+                        return (type.compareAllPolicies, inputStrings[1:])
+                    else:
+                        print userMessages.m2
+                        
                 elif inputStrings[0] == "help":
                     print self.optionList
                 else:

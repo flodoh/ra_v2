@@ -33,6 +33,14 @@ class executionHandler():
         elif(inputData[0] == inputType.analyzePolicies):
             return self.runA1(inputData[1], self.outputDirectory)
        
+       # If the user wants to run A2 on some Policies    
+        elif(inputData[0] == inputType.comparePolicies):
+            return self.runA2(inputData[1], self.outputDirectory)
+
+       # If the user wants to run A2 on some Policies    
+        elif(inputData[0] == inputType.compareAllPolicies):
+            return self.runA2(inputData[1], self.outputDirectory)     
+       
         #If the user wants to viewAllPolices
         elif(inputData[0] == inputType.viewPolicies):
             return self.viewAllPolicies()
@@ -53,17 +61,20 @@ class executionHandler():
     # inserts policy into database, if policyName does not exist in the database yet
     # TODO: read in also the Content of updatedText 
     def createPolicy(self, name, url, company, date, text, updatedText):
+        
         try:
             in_fileText = open(text, "r")
             textContent = in_fileText.read()
         except Exception as e:
                 return(1, e, inputType.insertPolicy)
-            
-        try:
-            in_fileUpdatedText = open(updatedText, "r")
-            updatedTextContent = in_fileUpdatedText.read()
-        except Exception as e:
-                return(1, e, inputType.insertPolicy)
+        if (updatedText == ""):
+            updatedTextContent = ""
+        else:
+            try:
+                in_fileUpdatedText = open(updatedText, "r")
+                updatedTextContent = in_fileUpdatedText.read()
+            except Exception as e:
+                    return(1, e, inputType.insertPolicy)
         try:
             policy(name=name, url=url, company=company, date=date, text=textContent, updatedText=updatedTextContent)
             # except DuplicateEntryError as e:
@@ -94,6 +105,24 @@ class executionHandler():
                 notAnalyzedPolicies.append((policyName,e))
         return(2,(analyzedPolicies,notAnalyzedPolicies),inputType.analyzePolicies)
     
+    def runA2(self, policyList, outputDirectory):
+        try:
+            ra = ReadabilityAnalyzer()
+        except Exception as e:
+            return (1,e,inputType.comparePolicies)
+        
+        policyResult = self.get_policies_by_names(policyList)  
+        data = policyResult[0]
+        foundPolicies = policyResult[1]
+        notFoundPolicies = policyResult[2]
+        try:
+            ra.create_benchmark(data, outputDirectory)
+        except Exception as e:
+                notFoundPolicies.append((foundPolicies))
+                print e
+
+        return(2,(foundPolicies,notFoundPolicies),inputType.comparePolicies)
+
     def viewAllPolicies(self):
         listOfPolicies = []
         try:
@@ -165,5 +194,36 @@ class executionHandler():
         return (2,(deletedPolicies,notDeletedPolicies),inputType.deletePolicies)
 
         
+    def get_policies_by_names(self, policyNames):
         
+        policyList = []
+        foundPolicies = []
+        notFoundPolicies = []
+        if(len(policyNames) == 0):
+            try:
+                foundPolicies = policy.select()
+            except Exception as e:
+                    return(1,e,inputType.viewPolicies)
+        else:
+            for policyName in policyNames:
+                try:
+                    policyData = policy.select(policy.q.name == policyName)[0]
+                    foundPolicies.append(policyData)
+                except Exception as e:
+                    notFoundPolicies.append(policyName)
+                    continue
+
+        data = {}
+        
+        for policyItem in foundPolicies:
+                    
+            name = policyItem.name
+            data[name] = {}
+            data[name]["name"] = policyItem.name
+            data[name]["text"] = policyItem.text
+            data[name]["url"] = policyItem.url
+            data[name]["date"] =  policyItem.date
+        
+        return (data, foundPolicies, notFoundPolicies)
+       
         

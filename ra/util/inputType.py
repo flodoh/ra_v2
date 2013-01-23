@@ -16,5 +16,7 @@ class inputType:
     addMetrics = 6
     subtractMetric = 7
     analyzePolicies = 8
+    comparePolicies = 9
+    compareAllPolicies = 10
 
     
