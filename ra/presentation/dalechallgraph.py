@@ -24,7 +24,7 @@ class dalechallgraph(object):
                     [(0.0,  0.0, 0.0),
                      (0.25, 0.8, 0.8),
                      (0.75, 1.0, 1.0),
-                     (1.0,  1.0, 1.0)],
+                    (1.0,  1.0, 1.0)],
                 'green': 
                    [(0.0,  0.0, 0.0),
                     (0.25, 0.8, 0.8),
@@ -34,14 +34,16 @@ class dalechallgraph(object):
                     [(0.0,  0.0, 0.0),
                      (0.25, 0.8, 0.8),
                      (0.75, 0.0, 0.0),
-                     (1.0,  1.0, 1.0)]}
+                    (1.0,  1.0, 1.0)]}
+
         self.my_cmap = matplotlib.colors.LinearSegmentedColormap('my_colormap',cdict,256)
+
         
     def create(self, text = ''):
        
-        #rfi = readabilityFilesInstaller()
-       # NewDaleChallWordsFile = open(rfi.getPath("Dale-Chall wordlist")[0]).read()
-      #  NewDaleChallWordsList = NewDaleChallWordsFile.split(';')
+        print os.path.abspath(__file__)
+        NewDaleChallWordsFile = open('../nltk_contrib/privacy_wordlist.txt').read()
+        NewDaleChallWordsList = NewDaleChallWordsFile.split(';')
         
         #Array mit Werten erstellen
         ta = textanalyzer("eng")
@@ -56,10 +58,13 @@ class dalechallgraph(object):
                 max_words = len(raw_words)
             for word in raw_words:
                 value = 0.0
-             #   if word.lower() in NewDaleChallWordsList: 
-            #        value = 0.25
-             #   else:
-            #        value = 0.5
+                #
+                
+                if word.lower() in NewDaleChallWordsList: 
+                   value = 0.25
+                else:
+                    value = 0.5
+            #
                  
                 if word.isdigit():
                     value = 0.0   
