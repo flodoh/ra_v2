@@ -26,6 +26,8 @@ class commandLineHandler():
         To apply metrics on one or more policis, please enter:       analyze \"policy A, policy B, ...\"\n\
         To compare all metrics in DB, please enter:                  compareAll\n\
         To compare specific metrics in DB, please enter:             compare \"policy A, policy B, ...\"\n\
+        \nPrivacy Policy Extractor (PPE)\n\
+        To scrape policies, please enter:                            scrape \"URL A (http://www.example.com), URL B ...\"\n\
         \nAdmin\n\
         To get this option list, please enter:                       help \n\
         " 
@@ -187,6 +189,14 @@ class commandLineHandler():
                         return (type.compareAllPolicies, inputStrings[1:])
                     else:
                         print userMessages.m2
+
+                # TODO: actually very simple implemented for presentation purpose
+                # Later errors need to be caught, URL validation ..
+                elif inputStrings[0] == "scrape":
+                    if(num > 1):
+                        return (type.startPPE, inputStrings[1:])
+                    else:
+                        print userMessages.m4
                         
                 elif inputStrings[0] == "help":
                     print self.optionList

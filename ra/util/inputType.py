@@ -18,5 +18,6 @@ class inputType:
     analyzePolicies = 8
     comparePolicies = 9
     compareAllPolicies = 10
+    startPPE = 11
 
     

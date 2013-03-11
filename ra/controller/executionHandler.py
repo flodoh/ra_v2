@@ -12,6 +12,8 @@ from util.inputType import *
 from util.userMessages import *
 from sqlobject.dberrors import *
 from readability.readabilityanalyzer import *
+from ppe.ppe import *
+
 class executionHandler():
     '''
     This class is responsible for executing all major functions in this program. It gets the commands
@@ -52,6 +54,10 @@ class executionHandler():
         # If the user wants to update a policy
         elif(inputData[0] == inputType.updatePolicy):
             return self.updatePolicy(inputData[1][0],inputData[1][1],inputData[1][2])
+
+        # If the user wants to start the PPE
+        elif(inputData[0] == inputType.startPPE):
+            return self.startPPE(inputData[1])
         
         # If the user wants to delete a policy
         elif(inputData[0] == inputType.deletePolicies):
@@ -199,6 +205,9 @@ class executionHandler():
                 deletedPolicies.append(policyName)
         return (2,(deletedPolicies,notDeletedPolicies),inputType.deletePolicies)
 
+    def startPPE (self, urls):
+        extractPolicies(urls)
+        return (0,0, inputType.startPPE)
         
     def get_policies_by_names(self, policyNames):
         
