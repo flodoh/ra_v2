@@ -13,11 +13,9 @@ class inputType:
     viewPolicies = 3
     viewDetails = 4
     updatePolicy = 5
-    addMetrics = 6
-    subtractMetric = 7
-    analyzePolicies = 8
-    comparePolicies = 9
-    compareAllPolicies = 10
-    startPPE = 11
+    analyzePolicies = 6
+    comparePolicies = 7
+    compareAllPolicies = 8
+    startPPE = 9
 
     

@@ -153,25 +153,13 @@ class commandLineHandler():
                 
                 elif ((inputStrings[0] == "viewPolicies") & (num == 1)):
                     return (type.viewPolicies,"")
-                 
-                elif inputStrings[0] == "add":
-                    if(num > 1):
-                        return (type.addMetrics, inputStrings[1:])
-                    else:
-                        print userMessages.m1
                         
                 elif (inputStrings[0] == "viewDetails"):
                     if (num!=2):
                         print "Please give exactly one policy name as a parameter. \n\n"
                     else:
                         return (type.viewDetails, inputStrings[1:])
-                 
-                elif inputStrings[0] == "substract":
-                    if(num > 1):
-                        return (type.subtractMetric, inputStrings[1:])
-                    else:
-                        print userMessages.m1
-                        
+                                      
                 elif inputStrings[0] == "analyze":
                     if(num > 1):
                         return (type.analyzePolicies, inputStrings[1:])
