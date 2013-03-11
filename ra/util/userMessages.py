@@ -9,10 +9,9 @@ of the program. If later the code is used for a web app the messages can be easy
 class userMessages:
     programmStarted  = "The readability analyzer has started"
     m0 = "Wrong number of input Parameters, at least one policy needs to be inserted\n\n"
-    m1 = "Wrong number of input Parameters, at least one metric needs to be inserted\n\n"
-    m2 = "This is no valid command, you can get the list of commands by typing \"help\"\n"
-    m3 = "Wrong number of input Parameters, at least one policy needs to be inserted\n\n"
-    m4 = "Wrong number of input Parameters, at least one url needs to be inserted\n\n"
+    m1 = "This is no valid command, you can get the list of commands by typing \"help\"\n"
+    m2 = "Wrong number of input Parameters, at least one policy needs to be inserted\n\n"
+    m3 = "Wrong number of input Parameters, at least one url needs to be inserted\n\n"
     exit = "Good Bye"
     urlNotValid = "Sorry, URL is not valid"
     executionSuccessful ="Execution was successful"

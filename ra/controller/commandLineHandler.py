@@ -176,7 +176,7 @@ class commandLineHandler():
                     if(num == 1):
                         return (type.compareAllPolicies, inputStrings[1:])
                     else:
-                        print userMessages.m2
+                        print userMessages.m1
 
                 # TODO: actually very simple implemented for presentation purpose
                 # Later errors need to be caught, URL validation ..
@@ -184,16 +184,16 @@ class commandLineHandler():
                     if(num > 1):
                         return (type.startPPE, inputStrings[1:])
                     else:
-                        print userMessages.m4
+                        print userMessages.m3
                         
                 elif inputStrings[0] == "help":
                     print self.optionList
                 else:
                     # if the user types bullshit
-                    print userMessages.m2 
+                    print userMessages.m1
             except IndexError:
                 # if the user types nothing
-                print userMessages.m2 
+                print userMessages.m1 
   
     
        
