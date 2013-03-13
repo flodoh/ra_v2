@@ -3,7 +3,7 @@ Created on 12.12.2012
 
 @author: Simon
 '''
-import distutils.dir_util
+from shutil import copytree, ignore_patterns, copy
 import os
 from userMessages import *
 
@@ -42,29 +42,31 @@ def determineWorkingDirectory():
             if(fatherDirectoryExists(workingDirectory) == False):
                 print "Error: FatherDirectory of working directory:\"", workingDirectory,"\" does not exist, please enter another one"
                 continue
-            if(os.path.isdir(workingDirectory)):
-               a = 2
+                
             if((workingDirectoryFile == False) or  not((os.path.isdir(workingDirectory)))):
                 htmloutput = currentdir+"/../output/html_output/"
+                template1 = currentdir+"/../output/template.html"
+                template2 = currentdir+"/../output_comparison/template.html"
                 try:
-                    os.mkdir(workingDirectory)                
-                    distutils.dir_util.copy_tree(htmloutput, workingDirectory)
-                    distutils.dir_util.copy_tree(htmloutput, workingDirectory)
-                    distutils.dir_util.copy_tree(htmloutput, workingDirectory)
+                    #all hidden folders (starting with .) are ignored
+                    copytree(htmloutput, workingDirectory, ignore = ignore_patterns('.*'))
+                #    print htmloutput+"template.html"
+                    os.makedirs(workingDirectory+"/output/")
+                    os.makedirs(workingDirectory+"/output_comparison/")
+                    copy(template1, workingDirectory+"/output/")
+                    copy(template2, workingDirectory+"/output_comparison/")            
+                 #   copy(template1, workingDirectory)
+                  #  copy(template2, workingDirectory)       
                     print "Working Directory\"", workingDirectory, "\" succesfully created "
                     break
                 except Exception as e:
                     print "Error: directory already exists, please enter another one"
                     continue
             break
-               # workingDirectoryFile = True
-            #break
-
-        if(workingDirectoryFile  == False):
+        if((workingDirectoryFile == False) or  workingDirectory != workingDirectoryOld):
             outputFile = open(utilDirectory+"/workingDirectory.txt", "w")
             outputFile.write(workingDirectory)
             outputFile.close()
-        #workingDirectory#.decode('base64')
         return (0,workingDirectory)
 
 def fatherDirectoryExists(workingDirectory):

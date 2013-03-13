@@ -89,8 +89,6 @@ class commandLineHandler():
                 print(userMessages.policiesNotAnalyzedSuccessfully)
                 for policyTouple in executionStatus[1][1]:
                     print policyTouple[0], "Error:", policyTouple[1]    
-            # if the user wanted to delete policies   
-            # if the user wanted to delete policies
             if(executionStatus[2] == inputType.deletePolicies):
                 print(userMessages.policiesDeletedSuccessfully)
                 for policy in executionStatus[1][0]:

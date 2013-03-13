@@ -7,10 +7,11 @@ import string
 import random
 from Cheetah.Template import Template
 
-TEMPLATE = '../output_comparison/template.html'
+#TEMPLATE = '../output_comparison/template.html'
+#TEMPLATE = '../output_comparison/template.html'
 
 #needs an dict with all the params
-def substitute(values, fry, heatmap):
+def substitute(values, fry, heatmap, template):
     table_begin = """
     <table class="condensed-table">
     <thread>
@@ -61,15 +62,14 @@ def substitute(values, fry, heatmap):
     template_values['fry_graph'] = fry
     
     #ADDED: write all html-content in one string (from template
-    t = Template(file=TEMPLATE, searchList=template_values)
+    t = Template(file=template, searchList=template_values)
     
     return str(t)
 
-def save_report(content, name):
-    #save t as pol_name.html in /html_ouput/
-    currentdir = os.curdir
-    filename = "../output_comparison/html_output/" + name + ".html"
-    print filename
+def save_report(content, name, outputDirectory):
+    #save t as pol_name.html in /outputDirectory/
+    filename = outputDirectory+ "/" + name + ".html"
+    print "\nfilename",filename
     f = open(filename, "w")
     f.write(content)
     f.close()
@@ -84,7 +84,8 @@ def open_report(path):
 def name_gen(size=6, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for x in range(size))
     
-def create_report(dict, fry, heatmap, single_rep = False):
-    new_report = substitute(dict, fry, heatmap)
+def create_report(dict, fry, heatmap, outputDirectory, single_rep = False):
+    template = outputDirectory+'/output_comparison/template.html'
+    new_report = substitute(dict, fry, heatmap, template)
     filename = name_gen()
-    save_report(new_report, filename)
+    save_report(new_report, filename, outputDirectory)

@@ -133,6 +133,8 @@ class ReadabilityAnalyzer(object):
         if save_db == True:
             new_policy(name, text, url)
         
+        
+      
         co.create_report(data[name],outputDirectory)
         
         return True
@@ -166,7 +168,7 @@ class ReadabilityAnalyzer(object):
         hm.save(data, heat_path)
         
         #comparison report aufrufen
-        co_comparison.create_report(data, fry_path, heat_path)
+        co_comparison.create_report(data, fry_path , heat_path, outputDirectory)
         return True
     
     #creates comparison report for alle texts in the db
@@ -252,7 +254,6 @@ if __name__ == "__main__":
     data = get_policies_by_names(alexa_list_ext)
     
     ra.create_benchmark(data)
-    
     #for site in easy_hard_list:
     ra.generate_report(data["Yahoo!"]["text"], "Yahoo!", data['Yahoo!']["url"])
          

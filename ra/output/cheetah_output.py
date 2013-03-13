@@ -1,11 +1,11 @@
 import os
 from Cheetah.Template import Template
 
-TEMPLATE = '../output/template.html'
+#TEMPLATE = '../output/template.html'
 
 
 # Substitutes the Template with policy specific values
-def substitute(values):
+def substitute(values, template):
     table_begin = """
     <table class="condensed-table">
     <thread>
@@ -32,7 +32,7 @@ def substitute(values):
     table = table_begin + table_content + table_end
     values['table'] = str(table)
     
-    t = Template(file=TEMPLATE, searchList=values)
+    t = Template(file=template, searchList=values)
     
     return str(t)
 
@@ -54,5 +54,7 @@ def open_report(path):
     #os.startfile(path)
     
 def create_report(dict,outputDirectory):
-    new_report = substitute(dict)
+    print "outputDirectory", outputDirectory
+    template = outputDirectory+'/output/template.html'
+    new_report = substitute(dict, template)
     save_report(new_report, dict["name"], outputDirectory)
