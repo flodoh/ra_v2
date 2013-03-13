@@ -102,7 +102,7 @@ class ReadabilityAnalyzer(object):
         
         #Ordner fr Bilder erstellen (hochzaehlen wenn schon vorhanden
         #path = self.TEMPLATE_PATH + name + " 0001"outputDirectory
-        path = outputDirectory + "/" + name + " 0001"
+        path = outputDirectory + "/output/" + name + " 0001"
         
         i = 2
         while os.path.exists(path):
@@ -143,7 +143,7 @@ class ReadabilityAnalyzer(object):
     def create_benchmark(self, data={},  outputDirectory = ''):
 
         #Ordner fr Bilder erstellen
-        path = outputDirectory + "/" + "Report" + " 0001"
+        path = outputDirectory + "/output_comparison/" + "Report" + " 0001"
         i = 2
         #Endung hochzaehlen, bis ein Ordner erstellt werden kann, der noch nicht existiert
         while os.path.exists(path):

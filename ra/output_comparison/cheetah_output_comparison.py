@@ -68,8 +68,7 @@ def substitute(values, fry, heatmap, template):
 
 def save_report(content, name, outputDirectory):
     #save t as pol_name.html in /outputDirectory/
-    filename = outputDirectory+ "/" + name + ".html"
-    print "\nfilename",filename
+    filename = outputDirectory+ "/output_comparison/" + name + ".html"
     f = open(filename, "w")
     f.write(content)
     f.close()

@@ -48,15 +48,13 @@ def determineWorkingDirectory():
                 template1 = currentdir+"/../output/template.html"
                 template2 = currentdir+"/../output_comparison/template.html"
                 try:
-                    #all hidden folders (starting with .) are ignored
-                    copytree(htmloutput, workingDirectory, ignore = ignore_patterns('.*'))
-                #    print htmloutput+"template.html"
+                    copytree(htmloutput, workingDirectory+"/styles", ignore = ignore_patterns('.*'))
+
                     os.makedirs(workingDirectory+"/output/")
                     os.makedirs(workingDirectory+"/output_comparison/")
                     copy(template1, workingDirectory+"/output/")
                     copy(template2, workingDirectory+"/output_comparison/")            
-                 #   copy(template1, workingDirectory)
-                  #  copy(template2, workingDirectory)       
+
                     print "Working Directory\"", workingDirectory, "\" succesfully created "
                     break
                 except Exception as e:

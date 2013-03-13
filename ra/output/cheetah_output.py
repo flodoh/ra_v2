@@ -37,10 +37,7 @@ def substitute(values, template):
     return str(t)
 
 def save_report(content, name, outputDirectory):
-    #save t as pol_name.html in /html_ouput/
-    #currentdir = os.curdir
-    #filename = "../output/html_output/" + name + ".html"
-    filename = outputDirectory + "/" + name + ".html"
+    filename = outputDirectory + "/output/" + name + ".html"
     print filename
     f = open(filename, "w")
     f.write(content)
