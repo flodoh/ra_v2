@@ -7,7 +7,7 @@ Created on 27.01.2013
 For using the module install the pattern library via "pip install pattern"
 '''
 
-from pattern.web import Spider, DEPTH, BREADTH, FIFO, LIFO
+from pattern.web import Spider, DEPTH, BREADTH, FIFO, LIFO, URL, plaintext
 from pattern.db import Datasheet
 from pattern.vector import Document, Corpus, Bayes
 from nltk.tokenize import RegexpTokenizer
@@ -70,15 +70,19 @@ def checkIfPolicy(url):
 	else:
 		return False
 
+def cleanHtml(html):
+	# check pattern documentation for modification (http://www.clips.ua.ac.be/pages/pattern-web#plaintext)
+	text = plaintext(html)
+	return text
+
 
 class ppSpider(Spider):
-    
     def visit(self, link, source=None):
         print "visiting:", link.url, "from:", link.referrer
         # Do the pre filtering via Regular Expression
         if checkIfPolicy(link.url) == True:
         	print "Found a policy in", link.url
-        	print source
+        	cleanPage = cleanHtml(source)
         	#classifyPolicy(source)
         else:
   			print "No Policy found"
@@ -89,25 +93,12 @@ class ppSpider(Spider):
 
 
 def extractPolicies(urls):
-	ppSpiderling = ppSpider (links=urls, domains=["org"], delay=0.0)
+	ppSpiderling = ppSpider (links=urls, domains=["org", "com"], delay=0.0)
 	while len(ppSpiderling.visited) < 300:
 		ppSpiderling.crawl(cached=False)
-	# 'Microsoft', 
-	# 'Amazon', 
-	# 'Twitter', 
-	# 'LinkedIn', 
-	# 'Wordpress', 
-	# 'Ebay', 
-	# 'Apple', 
-	# 'Paypal', 
-	# 'Tumblr', 
-	# 'BBC', 
-	# 'Livejasmin', 
-	# 'Craigslist', 
-	# 'Ask'
+
 
 def tokenize(text, regex=u'[a-zA-ZäöüÄÖÜß0-9]+', tolower=True):
-
     tokenizer = RegexpTokenizer(regex, flags=re.UNICODE)
     if tolower:
         text = text.lower()
