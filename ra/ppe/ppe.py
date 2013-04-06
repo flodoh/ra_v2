@@ -24,7 +24,7 @@ def classifyPolicy(content):
 	# The corpus does not have an empty line 
 	# between the end of a policy and the new 
 	# policy
-	data = Datasheet.load("policy_corpus.csv")
+	data = Datasheet.load("../ppe/policy_corpus.csv") #change this path when you call the script directly
 	documents = []
 	for score, message in data:
 		document = Document(message, type=int(score) > 0)
@@ -106,12 +106,10 @@ class ppSpider(Spider):
     def fail(self, link):
         print "failed:", link.url
 
-
 def extractPolicies(urls):
 	ppSpiderling = ppSpider (links=urls, domains=["org", "com"], delay=0.0)
 	while len(ppSpiderling.visited) < 300:
 		ppSpiderling.crawl(cached=False)
-
 
 if __name__ == '__main__':
 	# test set of start urls for running the script 
@@ -121,5 +119,5 @@ if __name__ == '__main__':
 	'http://www.youtube.com', 
 	'http://www.yahoo.com', 
 	'http://en.wikipedia.org', 
-	'http://www.amazon.com'
+	'http://www.amazon.com']
 	extractPolicies(urls)

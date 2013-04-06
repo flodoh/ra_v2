@@ -27,7 +27,7 @@ class commandLineHandler():
         To compare all metrics in DB, please enter:                  compareAll\n\
         To compare specific metrics in DB, please enter:             compare \"policy A, policy B, ...\"\n\
         \nPrivacy Policy Extractor (PPE)\n\
-        To scrape policies, please enter:                            scrape \"URL A (http://www.example.com), URL B ...\"\n\
+        To scrape policies, please enter:                            scrape URL A (http://www.example.com) URL B ... (no \'\"\', no \',\')\n\
         \nAdmin\n\
         To get this option list, please enter:                       help \n\
         " 
