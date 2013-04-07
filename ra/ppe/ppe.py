@@ -107,9 +107,13 @@ class ppSpider(Spider):
         print "failed:", link.url
 
 def extractPolicies(urls):
-	ppSpiderling = ppSpider (links=urls, domains=["org", "com"], delay=0.0)
+	# Sort can be switched between LIFO and FIFO
+	# LIFO means that the latest link in the queue will be followed first
+	# FIFO vice versa
+	ppSpiderling = ppSpider (links=urls, domains=["org", "com"], delay=0.1, sort=FIFO)
 	while len(ppSpiderling.visited) < 300:
-		ppSpiderling.crawl(cached=False)
+		# DEPTH tells the crawler not to leave the page
+		ppSpiderling.crawl(cached=False, method=DEPTH)
 
 if __name__ == '__main__':
 	# test set of start urls for running the script 
