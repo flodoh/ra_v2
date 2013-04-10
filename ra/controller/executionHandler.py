@@ -116,7 +116,11 @@ class executionHandler():
         except Exception as e:
             return (1,e,inputType.comparePolicies)
         
-        policyResult = self.get_policies_by_names(policyList)  
+        
+        if len(policyList) == 0:
+            return(3,"",inputType.comparePolicies)
+        policyResult = self.get_policies_by_names(policyList)
+
         data = policyResult[0]
         
         foundPolicyNames = []      
@@ -125,11 +129,11 @@ class executionHandler():
             
         notFoundPolicyNames = []
         for policy in policyResult[2]:
-            notFoundPolicyNames.append(policy.name)
+            notFoundPolicyNames.append((policy,"Policy not found"))
         try:
             ra.create_benchmark(data, outputDirectory)
         except Exception as e:
-                notFoundPolicyNames.append((foundPolicyNames))
+                notFoundPolicyNames.append((foundPolicyNames,e))
                 print e
 
         return(2,(foundPolicyNames,notFoundPolicyNames),inputType.comparePolicies)

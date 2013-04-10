@@ -83,6 +83,8 @@ class commandLineHandler():
                     print policyTouple[0], "Error:", policyTouple[1] 
              # if the user wanted to run a2
             if(executionStatus[2] == inputType.comparePolicies):
+              #  if(executionStatus[0] == 3):
+               #     print "no policies saved in database"
                 print(userMessages.policiesAnalyzedSuccessfully)
                 for policy in executionStatus[1][0]:
                     print(policy)
@@ -96,7 +98,8 @@ class commandLineHandler():
                 print(userMessages.policiesNotDeletedSuccessfully)
                 for policyTouple in executionStatus[1][1]:
                     print policyTouple[0], "Error:", policyTouple[1]          
-  
+        elif(executionStatus[0] == 3):
+            print "no policies saved in database"
   
     def receiveAndValidateInput(self, firstRun):
         type = inputType()
