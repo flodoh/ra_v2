@@ -1,3 +1,14 @@
+*
+* Settings
+* Who to Follow
+* Help
+* Sign out
+
+* Skip past navigation
+* On a mobile phone? Check out m.twitter.com!
+* Skip to navigation
+* Skip to sign in form
+
 Twitter Privacy Policy
 
 Twitter instantly connects people everywhere to what’s most meaningful to them. Any registered user can send a Tweet, which is a message of 140 characters or less that is public by default and can include other content like photos, videos, and links to other websites.
@@ -7,6 +18,7 @@ Tip What you say on Twitter may be viewed all around the world instantly.
 This Privacy Policy describes how and when Twitter collects, uses and shares your information when you use our Services. Twitter receives your information through our various websites, SMS, APIs, email notifications, applications, buttons, and widgets (the "Services" or "Twitter"). For example, you send us information when you use Twitter from our website, post or receive Tweets via SMS, or access Twitter from an application such as Twitter for Mac, Twitter for Android or TweetDeck. When using any of our Services you consent to the collection, transfer, manipulation, storage, disclosure and other uses of your information as described in this Privacy Policy. Irrespective of which country you reside in or supply information from, you authorize Twitter to use your information in the United States and any other country where Twitter operates.
 
 If you have any questions or comments about this Privacy Policy, please contact us at privacy@twitter.com or here.
+
 Information Collection and Use
 
 Tip We collect and use your information below to provide our Services and to measure and improve them over time.
@@ -28,6 +40,7 @@ Log Data: Our servers automatically record information ("Log Data") created by y
 Widget Data: We may tailor content for you based on your visits to third-party websites that integrate Twitter buttons or widgets. When these websites first load our buttons or widgets for display, we receive Log Data, including the web page you visited and a cookie that identifies your browser ("Widget Data"). After a maximum of 10 days, we start the process of deleting or aggregating Widget Data, which is usually instantaneous but in some cases may take up to a week. While we have the Widget Data, we may use it to tailor content for you, such as suggestions for people to follow on Twitter. Tailored content is stored with only your browser cookie ID and is separated from other Widget Data such as page-visit information. This feature is optional and not yet available to all users. If you want, you can suspend it or turn it off, which removes from your browser the unique cookie that enables the feature. Learn more about the feature here. For Tweets, Log Data, and other information that we receive from interactions with Twitter buttons or widgets, please see the other sections of this Privacy Policy.
 
 Third-Party Service Providers: Twitter uses a variety of third-party services to help provide our Services, such as hosting our various blogs and wikis, and to help us understand the use of our Services, such as Google Analytics. These third-party service providers may collect information sent by your browser as part of a web page request, such as cookies or your IP address.
+
 Information Sharing and Disclosure
 
 TipWe do not disclose your private personal information except in the limited circumstances described here.
@@ -41,19 +54,42 @@ Law and Harm: Notwithstanding anything to the contrary in this Policy, we may pr
 Business Transfers: In the event that Twitter is involved in a bankruptcy, merger, acquisition, reorganization or sale of assets, your information may be sold or transferred as part of that transaction. The promises in this Privacy Policy will apply to your information as transferred to the new entity.
 
 Non-Private or Non-Personal Information: We may share or disclose your non-private, aggregated or otherwise non-personal information, such as your public user profile information, public Tweets, the people you follow or that follow you, or the number of users who clicked on a particular link (even if only one did).
+
 Modifying Your Personal Information
 
 If you are a registered user of our Services, we provide you with tools and account settings to access or modify the personal information you provided to us and associated with your account.
 
 You can also permanently delete your Twitter account. If you follow the instructions here, your account will be deactivated and then deleted. When your account is deactivated, it is not viewable on Twitter.com. For up to 30 days after deactivation it is still possible to restore your account if it was accidentally or wrongfully deactivated. After 30 days, we begin the process of deleting your account from our systems, which can take up to a week.
+
 Our Policy Towards Children
 
 Our Services are not directed to persons under 13. If you become aware that your child has provided us with personal information without your consent, please contact us at privacy@twitter.com. We do not knowingly collect personal information from children under 13. If we become aware that a child under 13 has provided us with personal information, we take steps to remove such information and terminate the child's account. You can find additional resources for parents and teens here.
+
 EU Safe Harbor Framework
 
 Twitter complies with the U.S.-E.U. and U.S.-Swiss Safe Harbor Privacy Principles of notice, choice, onward transfer, security, data integrity, access, and enforcement. To learn more about the Safe Harbor program, and to view our certification, please visit the U.S. Department of Commerce website.
+
 Changes to this Policy
 
 We may revise this Privacy Policy from time to time. The most current version of the policy will govern our use of your information and will always be at https://twitter.com/privacy. If we make a change to this policy that, in our sole discretion, is material, we will notify you via an @Twitter update or email to the email address associated with your account. By continuing to access or use the Services after those changes become effective, you agree to be bound by the revised Privacy Policy.
 
 Effective: May 17, 2012
+
+Archive of Previous Privacy Policies
+
+Thoughts or questions about this Privacy Policy? Please, let us know.
+
+Footer
+
+* © 2013 Twitter
+* About Us
+* Contact
+* Blog
+* Status
+* Resources
+* API
+* Business
+* Help
+* Jobs
+* Terms
+* Privacy

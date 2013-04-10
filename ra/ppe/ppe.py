@@ -110,7 +110,7 @@ def extractPolicies(urls):
 	# Sort can be switched between LIFO and FIFO
 	# LIFO means that the latest link in the queue will be followed first
 	# FIFO vice versa
-	ppSpiderling = ppSpider (links=urls, domains=["org", "com"], delay=0.1, sort=FIFO)
+	ppSpiderling = ppSpider (links=urls, domains=["org", "com"], delay=0.1, sort=LIFO)
 	while len(ppSpiderling.visited) < 300:
 		# DEPTH tells the crawler not to leave the page
 		ppSpiderling.crawl(cached=False, method=DEPTH)
