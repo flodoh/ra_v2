@@ -83,8 +83,6 @@ class executionHandler():
                     return(1, e, inputType.insertPolicy)
         try:
             policy(name=name, url=url, company=company, date=date, text=textContent, updatedText=updatedTextContent)
-            # except DuplicateEntryError as e:
-            #    return (1,e)
         except Exception as e:
             return(1, e, inputType.insertPolicy)
         else: 
@@ -111,6 +109,7 @@ class executionHandler():
                 notAnalyzedPolicies.append((policyName,e))
         return(2,(analyzedPolicies,notAnalyzedPolicies),inputType.analyzePolicies)
     
+    #compares several policies
     def runA2(self, policyList, outputDirectory):
         try:
             ra = ReadabilityAnalyzer()
