@@ -116,10 +116,11 @@ class executionHandler():
         except Exception as e:
             return (1,e,inputType.comparePolicies)
         
-        
-        if len(policyList) == 0:
-            return(3,"",inputType.comparePolicies)
+
         policyResult = self.get_policies_by_names(policyList)
+
+        if len(policyResult) == 0:
+            return(3,"",inputType.comparePolicies)
 
         data = policyResult[0]
         
