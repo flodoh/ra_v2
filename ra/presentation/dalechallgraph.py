@@ -41,7 +41,7 @@ class dalechallgraph(object):
         
     def create(self, text = ''):
        
-        print os.path.abspath(__file__)
+
         NewDaleChallWordsFile = open('../nltk_contrib/privacy_wordlist.txt').read()
         NewDaleChallWordsList = NewDaleChallWordsFile.split(';')
         

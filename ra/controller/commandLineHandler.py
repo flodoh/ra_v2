@@ -17,7 +17,7 @@ class commandLineHandler():
     '''
     
     optionList = "Interactions with database\n\
-        To insert Policy, please enter:                              insert \"PolicyName\" \"Url of Policy\" \"Company of PolicyFile\" \"Original text of Policy\" \"Updated Text of Policy (optional)\"  \n\
+        To insert Policy, please enter:                              insert \"PolicyName\" \"Url of Policy\" \"Company of PolicyFile\" \"PolicyFile path \" \"updated PolicyFile path (optional)\"  \n\
         To delete one or more Policies, please enter:                delete \"Policy A, Policy B, ...\"\n\
         To update a Policy, please enter:                            update \"PolicyName\" \"Field to update (name/url/company/text/updatedText)\" \"New Content\"\n\
         To view all inserted policies, please enter:                 viewPolicies\n\
@@ -188,7 +188,7 @@ class commandLineHandler():
                         print userMessages.m3
                         
                 elif inputStrings[0] == "help":
-                    print self.optionList
+                    print self.optionList + self.exitMassage
                 else:
                     # if the user types bullshit
                     print userMessages.m1

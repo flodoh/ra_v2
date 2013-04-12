@@ -38,7 +38,6 @@ def substitute(values, template):
 
 def save_report(content, name, outputDirectory):
     filename = outputDirectory + "/output/" + name + ".html"
-    print filename
     f = open(filename, "w")
     f.write(content)
     f.close()
@@ -51,7 +50,6 @@ def open_report(path):
     #os.startfile(path)
     
 def create_report(dict,outputDirectory):
-    print "outputDirectory", outputDirectory
     template = outputDirectory+'/output/template.html'
     new_report = substitute(dict, template)
     save_report(new_report, dict["name"], outputDirectory)
