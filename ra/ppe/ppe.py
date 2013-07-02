@@ -9,9 +9,14 @@ For using the module install the pattern library via "pip install pattern"
 
 from pattern.web import Spider, DEPTH, BREADTH, FIFO, LIFO, URL, plaintext
 from pattern.db import Datasheet
+from pattern.web import Google, URL
+from pattern.web import SEARCH
 from pattern.vector import Document, Corpus, Bayes
 import urllib2
 import re, os
+
+Key = ""
+KeyActivated = "False"
 
 
 def classifyPolicy(content):
@@ -106,16 +111,71 @@ class ppSpider(Spider):
     def fail(self, link):
         print "failed:", link.url
 
-def extractPolicies(urls):
-	# Sort can be switched between LIFO and FIFO
-	# LIFO means that the latest link in the queue will be followed first
-	# FIFO vice versa
-	ppSpiderling = ppSpider (links=urls, domains=["org", "com"], delay=0.1, sort=LIFO)
-	while len(ppSpiderling.visited) < 300:
-		# DEPTH tells the crawler not to leave the page
-		ppSpiderling.crawl(cached=False, method=DEPTH)
+def findPolicyViaGoogle(query, language, count, pages):
+    '''
+    gets a query string and other parameters to query the google API.
+    returns a list of URL-Objects and the count of requests that were made to
+    the google API.
+    '''
+    global Key
+    global KeyActivated
+    urls = []
+    c = 0
+    if KeyActivated is True:
+        APIKey = Key
+    else:
+        APIKey = None
+
+    engine = Google(license=APIKey, language=language, throttle=1.0)
+    # Google is very fast but you can only get up to 100 (10x10)
+    # results per query.
+    for i in range(1, pages + 1):
+        c += 1
+        for result in engine.search(query, start=i, count=count, type=SEARCH):
+            urls.append(URL(result.url))
+            #print "Query:", query
+            print "URL:", result.url
+            #print "Date", result.date
+            #print "Author", result.author
+            #print "Title:", result.title
+            #print "Text html:", result.text
+            print "Text clean:", plaintext(result.text)  # plaintext()
+            #removes HTML formatting.
+            #print result.download(timeout=10, cached=True, proxy=None) # uses
+            #the URL object internally. Same as url.download()
+            #print 20 * "-"
+    output = [c, urls]
+    return output
+
+
+def extractPolicies(urls, mode, lan, count, pages):
+	'''
+	This function gets the urls that need to be crawled and the
+	mode of finding and extracting the privacy policy on the
+	websites
+	'''
+	if mode == 'crawl':
+		# Sort can be switched between LIFO and FIFO
+		# LIFO means that the latest link in the queue will be followed first
+		# FIFO vice versa
+		ppSpiderling = ppSpider (links=urls, domains=["org", "com"], delay=0.1, sort=LIFO)
+		while len(ppSpiderling.visited) < 300:
+			# DEPTH tells the crawler not to leave the page
+			ppSpiderling.crawl(cached=False, method=DEPTH)
+	elif mode == 'google':
+		for url in urls:
+			query = "Privacy Policy ", url
+			findPolicyViaGoogle(query, lan, count, pages)
+	else:
+		print "Please choose a valid mode for extracting the policies"
 
 if __name__ == '__main__':
+	mode = "google"
+	lan = "en"
+	pages = 1
+	# count of results per page that we collect
+	# pages * count = sum of max results per query
+	count = 10
 	# test set of start urls for running the script 
 	# directly in pyton 
 	urls = ['http://www.google.com',
@@ -124,4 +184,4 @@ if __name__ == '__main__':
 	'http://www.yahoo.com', 
 	'http://en.wikipedia.org', 
 	'http://www.amazon.com']
-	extractPolicies(urls)
+	extractPolicies(urls, mode, lan, count, pages)
