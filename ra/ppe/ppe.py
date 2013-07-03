@@ -139,7 +139,7 @@ def findPolicyViaGoogle(query, language, count, pages):
             #print "Author", result.author
             #print "Title:", result.title
             #print "Text html:", result.text
-            print "Text clean:", plaintext(result.text)  # plaintext()
+            #print "Text clean:", plaintext(result.text)  # plaintext()
             #removes HTML formatting.
             #print result.download(timeout=10, cached=True, proxy=None) # uses
             #the URL object internally. Same as url.download()
@@ -164,24 +164,29 @@ def extractPolicies(urls, mode, lan, count, pages):
 			ppSpiderling.crawl(cached=False, method=DEPTH)
 	elif mode == 'google':
 		for url in urls:
-			query = "Privacy Policy ", url
+			query = "Datenschutzrichtlinie" + url
+			print 10 * "#", "Query:", query, 10 * "#"
 			findPolicyViaGoogle(query, lan, count, pages)
 	else:
 		print "Please choose a valid mode for extracting the policies"
 
 if __name__ == '__main__':
 	mode = "google"
-	lan = "en"
+	lan = "de"
 	pages = 1
 	# count of results per page that we collect
 	# pages * count = sum of max results per query
 	count = 10
 	# test set of start urls for running the script 
 	# directly in pyton 
-	urls = ['http://www.google.com',
+	urls = ['http://www.apple.com',
+	'http://www.craigslist.com', 
+	'http://www.ebay.com', 
 	'http://www.facebook.com', 
-	'http://www.youtube.com', 
-	'http://www.yahoo.com', 
-	'http://en.wikipedia.org', 
-	'http://www.amazon.com']
+	'http://www.google.com',
+	'http://www.paypal.com', 
+	'http://www.tumblr.com', 
+	'http://www.twitter.com',  
+	'http://www.yahoo.com',
+	'http://www.bitly.com']
 	extractPolicies(urls, mode, lan, count, pages)
